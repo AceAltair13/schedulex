@@ -32,6 +32,7 @@ export default {
                 {
                     subject_name: "DMBI",
                     total_slots: 4,
+
                     faculty: [
                         {
                             teacher: "AD",

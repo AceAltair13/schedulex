@@ -57,7 +57,7 @@ const calculateCosts = (
     //         Soft Constraints
     //
     // 1. Duplicate consecutive teacher should be avoided in a single day.
-    //
+    // 2. Lectures should be divided uniformly in tine slots
     // ================================
 
     // Duplicate consecutive teacher should be avoided in a single day.
@@ -75,6 +75,20 @@ const calculateCosts = (
             }
         });
     });
+
+
+    // 2. Lectures should be divided uniformly in tine slots;
+    // let total_slots = 0;
+    // for(leti=0;i<days.length;i++){
+    //     total_slots += days[i].slots;
+    // }
+
+    // for(let i=0;i<subject_data.length;i++){
+    //     for(let j=0;j<subject_data[i].subjects.length;j++){
+    //         let subject_name = subject_data[i].subjects[j].subject_name;
+    //         for(let k=0;k<subject_data[i].subjects[j].faculty.length;k++){
+
+    // }
 
     return cost;
 };
