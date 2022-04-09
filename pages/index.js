@@ -1,19 +1,10 @@
-import { Container } from '@mui/material'
 import Hero from '../components/Home/Hero'
-import Navbar from '../components/Home/Navbar'
+import HomeLayout from '../components/Layouts/HomeLayout'
 
 export default function Home() {
   return (
-    <Container
-      maxWidth="xl"
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        minHeight: '100vh',
-      }}
-    >
-      <Navbar />
+    <HomeLayout>
       <Hero />
-    </Container>
+    </HomeLayout>
   )
 }
