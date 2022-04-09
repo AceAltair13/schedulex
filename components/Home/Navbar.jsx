@@ -60,6 +60,7 @@ const Navbar = () => {
                     variant="h4"
                     sx={{ flexGrow: 1 }}
                     color="primary.main"
+                    fontWeight="fontWeightBold"
                 >
                     {"ScheduleX"}
                 </Typography>
