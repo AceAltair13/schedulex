@@ -23,7 +23,8 @@ export default {
         },
     ],
     classrooms: ["IT-TE5", "IT-TE6","IT-BE5", "IT-BE6", "CS-BE5"
-                , "CS-BE6","CS-TE5", "CS-TE6"],
+                , "CS-BE6","CS-TE5", "CS-TE6","EXTC-TE5",
+                 "EXTC-TE6", "EXTC-BE5", "EXTC-BE6"],
     school_data: [
         {
             department: "IT",
@@ -340,6 +341,163 @@ export default {
                             teacher: "UB",
                             classrooms: ["CS-TE5", "CS-TE6"],
                             slots: 2,
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            department: "EXTC",
+            year: 4,
+            subjects: [
+                {
+                    subject_name: "E-DMBI",
+                    total_slots: 4,
+
+                    faculty: [
+                        {
+                            teacher: "E-AD",
+                            classrooms: ["EXTC-TE5","EXTC-TE6"],
+                            slots: 2,
+                        },
+                        {
+                            teacher: "E-NDJ",
+                            classrooms: ["EXTC-TE5", "EXTC-TE6"],
+                            slots: 2,
+                        },
+                    ],
+                },
+                {
+                    subject_name: "E-Web X.0",
+                    total_slots: 4,
+                    faculty: [
+                        {
+                            teacher: "E-JP",
+                            classrooms:["EXTC-TE5", "EXTC-TE6"],
+                            slots: 2,
+                        },
+                        {
+                            teacher: "E-SP",
+                            classrooms:["EXTC-TE5", "EXTC-TE6"],
+                            slots: 2,
+                        },
+                    ],
+                },
+                {
+                    subject_name: "E-WTN",
+                    total_slots: 3,
+                    faculty: [
+                        {
+                            teacher: "SR",
+                            classrooms: ["EXTC-TE5", "EXTC-TE6"],
+                            slots: 3,
+                        }
+                    ],
+                },
+                {
+                    subject_name: "E-AI&DS",
+                    total_slots: 4,
+                    faculty: [
+                        {
+                            teacher: "E-KG",
+                            classrooms: ["EXTC-TE5", "EXTC-TE6"],
+                            slots: 3,
+                        },
+                        {
+                            teacher: "E-BT",
+                            classrooms: [ "EXTC-TE6"],
+                            slots: 1,
+                        },
+                        {
+                            teacher: "E-NJ",
+                            classrooms: ["EXTC-TE5"],
+                            slots: 1,
+                        }
+                    ],
+                },
+                {
+                    subject_name: "E-Extra",
+                    total_slots: 5,
+                    faculty: [
+                        {
+                            teacher: "E-Ex-SR",
+                            classrooms: ["EXTC-TE5", "EXTC-TE6"],
+                            slots: 3,
+                        }, 
+                        {
+                            teacher: "E-SR",
+                            classrooms: ["EXTC-TE5", "EXTC-TE6"],
+                            slots: 2,
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            department: "EXTC",
+            year: 5,
+            subjects: [
+                {
+                    subject_name: "E-BDA",
+                    total_slots: 5,
+                    faculty: [
+                        {
+                            teacher: "E-BT",
+                            classrooms: ["EXTC-BE5","EXTC-BE6"],
+                            slots: 3,
+                        },
+                        {
+                            teacher: "E-PS",
+                            classrooms: ["EXTC-BE5","EXTC-BE6"],
+                            slots: 2,
+                        },
+                    ],
+                },
+                {
+                    subject_name: "E-IOE",
+                    total_slots: 5,
+                    faculty: [
+                        {
+                            teacher: "E-SR",
+                            classrooms: ["EXTC-BE5", "EXTC-BE6"],
+                            slots: 3,
+                        },
+                        {
+                            teacher: "E-MB",
+                            classrooms: ["EXTC-BE5", "EXTC-BE6"],
+                            slots: 2,
+                        },
+                    ],
+                },
+                {
+                    subject_name: "E-PM",
+                    total_slots: 4,
+                    faculty: [
+                        {
+                            teacher: "E-PK",
+                            classrooms: ["EXTC-BE5", "EXTC-BE6"],
+                            slots: 2,
+                        },
+                        {
+                            teacher: "E-VB",
+                            classrooms: ["EXTC-BE5", "EXTC-BE6"],
+                            slots: 2,
+                        },
+                    ],
+                },
+                {
+                    subject_name: "E-UID",
+                    total_slots: 4,
+                    faculty: [
+                        {
+                            teacher: "E-SN",
+                            classrooms: ["EXTC-BE5", "EXTC-BE6"],
+                            slots: 3,
+                        },
+                        {
+                            teacher: "E-DK",
+                            classrooms: ["EXTC-BE5", "EXTC-BE6"],
+                            slots: 1,
                         },
                     ],
                 },
