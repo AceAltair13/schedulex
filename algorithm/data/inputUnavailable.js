@@ -37,12 +37,14 @@ export default {
                             teacher: "AD",
                             classrooms: ["IT-TE5","IT-TE6"],
                             slots: 2,
+                            unavailable_slots:[[0,1,2,3],[0,1,2,3],[],[],[]]
                           
                         },
                         {
                             teacher: "NDJ",
                             classrooms: ["IT-TE5", "IT-TE6"],
                             slots: 2,
+                            unavailable_slots:[[],[],[],[0,1,2,3],[0,1,2,3]]
                         },
                     ],
                 },
@@ -54,11 +56,14 @@ export default {
                             teacher: "JP",
                             classrooms:["IT-TE5", "IT-TE6"],
                             slots: 2,
+                            unavailable_slots:[[],[],[],[],[]]
                         },
                         {
                             teacher: "SP",
                             classrooms:["IT-TE5", "IT-TE6"],
                             slots: 2,
+                            unavailable_slots:[[],[],[],[],[]]
+
                         },
                     ],
                 },
@@ -70,6 +75,8 @@ export default {
                             teacher: "SR",
                             classrooms: ["IT-TE5", "IT-TE6"],
                             slots: 3,
+                            unavailable_slots:[[],[],[],[],[]]
+
                         }
                     ],
                 },
@@ -81,16 +88,22 @@ export default {
                             teacher: "KG",
                             classrooms: ["IT-TE5", "IT-TE6"],
                             slots: 3,
+                            unavailable_slots:[[],[],[],[],[]]
+
                         },
                         {
                             teacher: "BT",
                             classrooms: [ "IT-TE6"],
                             slots: 1,
+                            unavailable_slots:[[],[],[],[],[]]
+
                         },
                         {
                             teacher: "NJ",
                             classrooms: ["IT-TE5"],
                             slots: 1,
+                            unavailable_slots:[[],[],[],[],[]]
+
                             
                         }
                     ],
@@ -103,11 +116,15 @@ export default {
                             teacher: "Ex-SR",
                             classrooms: ["IT-TE5", "IT-TE6"],
                             slots: 3,
+                            unavailable_slots:[[],[],[],[],[]]
+
                         }, 
                         {
                             teacher: "SR",
                             classrooms: ["IT-TE5", "IT-TE6"],
                             slots: 2,
+                            unavailable_slots:[[],[],[],[],[]]
+
                         },
                     ],
                 },
@@ -125,11 +142,15 @@ export default {
                             teacher: "BT",
                             classrooms: ["IT-BE5","IT-BE6"],
                             slots: 3,
+                            unavailable_slots:[[],[],[],[],[]]
+
                         },
                         {
                             teacher: "PS",
                             classrooms: ["IT-BE5","IT-BE6"],
                             slots: 2,
+                            unavailable_slots:[[],[],[],[],[]]
+
                         },
                     ],
                 },
@@ -141,11 +162,15 @@ export default {
                             teacher: "SR",
                             classrooms: ["IT-BE5", "IT-BE6"],
                             slots: 3,
+                            unavailable_slots:[[],[],[],[],[]]
+
                         },
                         {
                             teacher: "MB",
                             classrooms: ["IT-BE5", "IT-BE6"],
                             slots: 2,
+                            unavailable_slots:[[],[],[],[],[]]
+
                         },
                     ],
                 },
@@ -157,11 +182,15 @@ export default {
                             teacher: "PK",
                             classrooms: ["IT-BE5", "IT-BE6"],
                             slots: 2,
+                            unavailable_slots:[[],[],[],[],[]]
+
                         },
                         {
                             teacher: "VB",
                             classrooms: ["IT-BE5", "IT-BE6"],
                             slots: 2,
+                            unavailable_slots:[[],[],[],[],[]]
+
                         },
                     ],
                 },
@@ -173,11 +202,15 @@ export default {
                             teacher: "SN",
                             classrooms: ["IT-BE5", "IT-BE6"],
                             slots: 3,
+                            unavailable_slots:[[],[],[],[],[]]
+
                         },
                         {
                             teacher: "DK",
                             classrooms: ["IT-BE5", "IT-BE6"],
                             slots: 1,
+                            unavailable_slots:[[],[],[],[],[]]
+
                         },
                     ],
                 },
@@ -195,16 +228,22 @@ export default {
                             teacher: "UB",
                             classrooms: ["CS-BE5","CS-BE6"],
                             slots: 2,
+                            unavailable_slots:[[],[],[],[],[]]
+
                         },
                         {
                             teacher: "RR",
                             classrooms: ["CS-BE5","CS-BE6"],
                             slots: 2,
+                            unavailable_slots:[[],[],[],[],[]]
+
                         },
                         {
                             teacher: "KG",
                             classrooms: ["CS-BE5","CS-BE6"],
                             slots: 1,
+                            unavailable_slots:[[0,1,2,3],[0,1,2,3],[0,1,2,3],[],[]]
+
                         },
                     ],
                 },
@@ -216,11 +255,13 @@ export default {
                             teacher: "VD",
                             classrooms: ["CS-BE5", "CS-BE6"],
                             slots: 3,
+                            unavailable_slots:[[],[],[],[],[]]
                         },
                         {
                             teacher: "PV",
                             classrooms: ["CS-BE5", "CS-BE6"],
                             slots: 2,
+                            unavailable_slots:[[],[],[],[],[]]
                         },
                     ],
                 },
@@ -232,11 +273,13 @@ export default {
                             teacher: "NJ",
                             classrooms: ["CS-BE5", "CS-BE6"],
                             slots: 2,
+                            unavailable_slots:[[],[],[],[],[]]
                         },
                         {
                             teacher: "SS",
                             classrooms: ["CS-BE5", "CS-BE6"],
                             slots: 2,
+                            unavailable_slots:[[],[],[],[],[]]
                         },
                     ],
                 },
@@ -248,11 +291,13 @@ export default {
                             teacher: "MM",
                             classrooms: ["CS-BE5", "CS-BE6"],
                             slots: 2,
+                            unavailable_slots:[[],[],[],[],[]]
                         },
                         {
                             teacher: "MD",
                             classrooms: ["CS-BE5", "CS-BE6"],
                             slots: 2,
+                            unavailable_slots:[[],[],[],[],[]]
                         },
                     ],
                 },
@@ -270,16 +315,19 @@ export default {
                             teacher: "RS",
                             classrooms: ["CS-TE5","CS-TE6"],
                             slots: 2,
+                            unavailable_slots:[[],[],[],[],[]]
                         },
                         {
                             teacher: "DP",
                             classrooms: ["CS-TE5","CS-TE6"],
                             slots: 2,
+                            unavailable_slots:[[],[],[],[],[]]
                         },
                         {
                             teacher: "RF",
                             classrooms: ["CS-TE5","CS-TE6"],
                             slots: 1,
+                            unavailable_slots:[[],[],[0,1,2,3],[0,1,2,3],[0,1,2,3]]
                         },
                     ],
                 },
@@ -291,11 +339,13 @@ export default {
                             teacher: "VS",
                             classrooms: ["CS-TE5", "CS-TE6"],
                             slots: 3,
+                            unavailable_slots:[[],[],[],[],[]]
                         },
                         {
                             teacher: "RK",
                             classrooms: ["CS-TE5", "CS-TE6"],
                             slots: 2,
+                            unavailable_slots:[[],[],[],[],[]]
                         },
                     ],
                 },
@@ -307,11 +357,13 @@ export default {
                             teacher: "NJ",
                             classrooms: ["CS-TE5", "CS-TE6"],
                             slots: 2,
+                            unavailable_slots:[[],[],[],[],[]]
                         },
                         {
                             teacher: "SS",
                             classrooms: ["CS-TE5", "CS-TE6"],
                             slots: 2,
+                            unavailable_slots:[[],[],[],[],[]]
                         },
                     ],
                 },
@@ -323,11 +375,13 @@ export default {
                             teacher: "PV",
                             classrooms: [ "CS-TE6"],
                             slots: 4,
+                            unavailable_slots:[[],[],[],[],[]]
                         },
                         {
                             teacher: "MM",
                             classrooms: ["CS-TE5"],
                             slots: 4,
+                            unavailable_slots:[[],[],[],[],[]]
                         },
                         
                     ],
@@ -341,6 +395,7 @@ export default {
                             teacher: "UB",
                             classrooms: ["CS-TE5", "CS-TE6"],
                             slots: 2,
+                            unavailable_slots:[[],[],[],[],[]]
                         },
                     ],
                 },

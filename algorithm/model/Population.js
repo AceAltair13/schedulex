@@ -2,6 +2,7 @@ import Gene from "./Gene.js";
 import Chromosome from "./Chromosome.js";
 import { POPULATION_SIZE } from "../../constants/config.js";
 import _ from "lodash";
+import writeFile from "../../helpers/writeFile.js";
 
 export default class Population {
     // Initialize Population
@@ -36,7 +37,7 @@ export default class Population {
                 });
             });
         });
-
+        writeFile("genePool", genePool);
         return genePool;
     }
 

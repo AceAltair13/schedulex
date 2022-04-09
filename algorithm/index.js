@@ -1,4 +1,4 @@
-import data from "./data/input.js";
+import data from "./data/inputv1.js";
 import writeFile from "../helpers/writeFile.js";
 import prettify from "../helpers/prettify.js";
 import GeneticTimeTable from "./model/GeneticTimeTable.js";
