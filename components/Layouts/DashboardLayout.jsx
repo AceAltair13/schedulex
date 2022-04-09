@@ -20,176 +20,181 @@ import { useRouter } from "next/router";
 
 const drawerWidth = 240;
 
+const DrawerList = () => {
+    const router = useRouter();
+    return (
+        <List>
+            <ListItem
+                button
+                sx={{ pl: 3 }}
+                onClick={() => router.push("/dashboard")}
+            >
+                <ListItemIcon>
+                    <DashboardIcon sx={{ color: "white" }} />
+                </ListItemIcon>
+                <ListItemText primary="Dashboard" />
+            </ListItem>
+
+            <ListItem
+                button
+                sx={{ pl: 3 }}
+                onClick={() => router.push("/dashboard/institute-details")}
+            >
+                <ListItemIcon>
+                    <AccountBalanceIcon sx={{ color: "white" }} />
+                </ListItemIcon>
+                <ListItemText primary="Institute" />
+            </ListItem>
+
+            <ListItem
+                button
+                sx={{ pl: 3 }}
+                onClick={() => router.push("/dashboard/classroom-details")}
+            >
+                <ListItemIcon>
+                    <ClassIcon sx={{ color: "white" }} />
+                </ListItemIcon>
+                <ListItemText primary="Classrooms" />
+            </ListItem>
+
+            <ListItem
+                button
+                sx={{ pl: 3 }}
+                onClick={() => router.push("/dashboard/course-details")}
+            >
+                <ListItemIcon>
+                    <BadgeIcon sx={{ color: "white" }} />
+                </ListItemIcon>
+                <ListItemText primary="Courses" />
+            </ListItem>
+
+            <ListItem
+                button
+                sx={{ pl: 3 }}
+                onClick={() => router.push("/dashboard/teacher-details")}
+            >
+                <ListItemIcon>
+                    <SchoolIcon sx={{ color: "white" }} />
+                </ListItemIcon>
+                <ListItemText primary="Teachers" />
+            </ListItem>
+
+            <ListItem
+                button
+                sx={{ pl: 3 }}
+                onClick={() => router.push("/dashboard/subject-details")}
+            >
+                <ListItemIcon>
+                    <SubjectIcon sx={{ color: "white" }} />
+                </ListItemIcon>
+                <ListItemText primary="Subjects" />
+            </ListItem>
+        </List>
+    );
+};
+
 function DashboardLayout({ title, children }) {
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-  const router = useRouter();
+    const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
+    const handleDrawerToggle = () => {
+        setMobileOpen(!mobileOpen);
+    };
 
-  const drawer = (
-    <div>
-      <Box sx={{ p: 2, mb: 7 }}>
-        <Typography
-          variant="h4"
-          sx={{ flexGrow: 1 }}
-          color="primary.main"
-          fontWeight="fontWeightBold"
-          textAlign="center"
-        >
-          ScheduleX
-        </Typography>
-      </Box>
-      <List>
-        <ListItem
-          button
-          sx={{ pl: 3 }}
-          onClick={() => router.push("/dashboard")}
-        >
-          <ListItemIcon>
-            <DashboardIcon />
-          </ListItemIcon>
-          <ListItemText primary="Dashboard" />
-        </ListItem>
+    const drawer = (
+        <div>
+            <Box sx={{ p: 2, mb: 7 }}>
+                <Typography
+                    variant="h4"
+                    sx={{ flexGrow: 1 }}
+                    fontWeight="fontWeightBold"
+                    textAlign="center"
+                >
+                    ScheduleX
+                </Typography>
+            </Box>
+            <DrawerList />
+        </div>
+    );
 
-        <ListItem
-          button
-          sx={{ pl: 3 }}
-          onClick={() => router.push("/dashboard/institute-details")}
-        >
-          <ListItemIcon>
-            <AccountBalanceIcon />
-          </ListItemIcon>
-          <ListItemText primary="Institute Details" />
-        </ListItem>
-
-        <ListItem
-          button
-          sx={{ pl: 3 }}
-          onClick={() => router.push("/dashboard/classroom-details")}
-        >
-          <ListItemIcon>
-            <ClassIcon />
-          </ListItemIcon>
-          <ListItemText primary="Classroom Details" />
-        </ListItem>
-
-        <ListItem
-          button
-          sx={{ pl: 3 }}
-          onClick={() => router.push("/dashboard/course-details")}
-        >
-          <ListItemIcon>
-            <BadgeIcon />
-          </ListItemIcon>
-          <ListItemText primary="Course Details" />
-        </ListItem>
-
-        <ListItem
-          button
-          sx={{ pl: 3 }}
-          onClick={() => router.push("/dashboard/teacher-details")}
-        >
-          <ListItemIcon>
-            <SchoolIcon />
-          </ListItemIcon>
-          <ListItemText primary="Teacher Details" />
-        </ListItem>
-
-        <ListItem
-          button
-          sx={{ pl: 3 }}
-          onClick={() => router.push("/dashboard/subject-details")}
-        >
-          <ListItemIcon>
-            <SubjectIcon />
-          </ListItemIcon>
-          <ListItemText primary="Subject Details" />
-        </ListItem>
-      </List>
-    </div>
-  );
-
-  return (
-    <Box sx={{ display: "flex" }}>
-      <AppBar
-        elevation={0}
-        color="primary"
-        position="fixed"
-        sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-          ml: { sm: `${drawerWidth}px` },
-        }}
-      >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h5"
-            fontWeight="fontWeightBold"
-            noWrap
-            component="div"
-          >
-            {title}
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Box
-        component="nav"
-        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-      >
-        <Drawer
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
-        >
-          {drawer}
-        </Drawer>
-        <Drawer
-          variant="permanent"
-          sx={{
-            display: { xs: "none", sm: "block" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
-          open
-        >
-          {drawer}
-        </Drawer>
-      </Box>
-      <Box
-        component="main"
-        sx={{
-          flexGrow: 1,
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-        }}
-      >
-        <Container>
-          <Toolbar />
-          <Box pt={4}>{children}</Box>
-        </Container>
-      </Box>
-    </Box>
-  );
+    return (
+        <Box sx={{ display: "flex" }}>
+            <AppBar
+                elevation={0}
+                color="inherit"
+                position="fixed"
+                sx={{
+                    width: { sm: `calc(100% - ${drawerWidth}px)` },
+                    ml: { sm: `${drawerWidth}px` },
+                }}
+            >
+                <Toolbar>
+                    <IconButton
+                        color="inherit"
+                        edge="start"
+                        onClick={handleDrawerToggle}
+                        sx={{ mr: 2, display: { sm: "none" } }}
+                    >
+                        <MenuIcon />
+                    </IconButton>
+                    <Typography
+                        variant="h5"
+                        fontWeight="fontWeightBold"
+                        noWrap
+                        component="div"
+                    >
+                        {title}
+                    </Typography>
+                </Toolbar>
+            </AppBar>
+            <Box
+                component="nav"
+                sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+            >
+                <Drawer
+                    variant="temporary"
+                    open={mobileOpen}
+                    onClose={handleDrawerToggle}
+                    ModalProps={{
+                        keepMounted: true, // Better open performance on mobile.
+                    }}
+                    sx={{
+                        display: { xs: "block", sm: "none" },
+                        "& .MuiDrawer-paper": {
+                            boxSizing: "border-box",
+                            width: drawerWidth,
+                        },
+                    }}
+                >
+                    {drawer}
+                </Drawer>
+                <Drawer
+                    variant="permanent"
+                    sx={{
+                        display: { xs: "none", sm: "block" },
+                        "& .MuiDrawer-paper": {
+                            boxSizing: "border-box",
+                            width: drawerWidth,
+                        },
+                    }}
+                    open
+                >
+                    {drawer}
+                </Drawer>
+            </Box>
+            <Box
+                component="main"
+                sx={{
+                    flexGrow: 1,
+                    width: { sm: `calc(100% - ${drawerWidth}px)` },
+                }}
+            >
+                <Container>
+                    <Toolbar />
+                    <Box pt={4}>{children}</Box>
+                </Container>
+            </Box>
+        </Box>
+    );
 }
 
 export default DashboardLayout;

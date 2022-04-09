@@ -3,11 +3,6 @@ import { pink, purple, } from "@mui/material/colors";
 
 const theme = createTheme({
     palette: {
-        // primary: {
-        //     main: purple[400],
-        //     dark: purple[700],
-        //     light: purple[100],
-        // },
         primary: purple,
         secondary: pink,
         text: {
@@ -21,6 +16,14 @@ const theme = createTheme({
                 disableElevation: true,
             },
         },
+        MuiDrawer: {
+            styleOverrides: {
+                paper: {
+                    backgroundColor: "#9c27b0",
+                    color: "white"
+                }
+            }
+        }
     },
     typography: {
         fontFamily: ["Inter"],

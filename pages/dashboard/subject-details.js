@@ -101,7 +101,7 @@ const SubjectDetails = () => {
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.up('md'))
   return (
-    <DashboardLayout title="Subject Details">
+    <DashboardLayout title="Subjects">
       <Container
         maxWidth="xl"
         sx={{
