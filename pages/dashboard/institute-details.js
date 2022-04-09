@@ -6,14 +6,15 @@ import {
   Fab,
   Button,
   useMediaQuery,
+  TextField,
 } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
-import CustomInput from '../../components/Dashboard/CustomInput'
 import React from 'react'
 import { EventRounded, AddRounded } from '@mui/icons-material'
 import CustomSelect from '../../components/Dashboard/CustomSelect'
 import { useTheme } from '@emotion/react'
 import CustomToolbar from '../../components/Dashboard/CustomToolbar'
+import DashboardLayout from '../../components/Layouts/DashboardLayout'
 
 const InstituteDetails = () => {
   const columns = [
@@ -58,66 +59,79 @@ const InstituteDetails = () => {
   const matches = useMediaQuery(theme.breakpoints.up('md'))
 
   return (
-    <Container
-      maxWidth="xl"
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        minHeight: '100vh',
-        p: 3,
-      }}
-    >
-      <Stack spacing={3}>
-        <CustomInput
-          title="Institute Name"
-          placeholder="Enter institute Name"
-        ></CustomInput>
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Box pr={3}>
-            <EventRounded fontSize="large" />
-          </Box>
-
-          <Typography
-            variant="h5"
-            color="primary.main"
-            fontWeight="fontWeightBold"
-          >
-            Add Working Days
-          </Typography>
-        </Box>
-        <Stack direction={matches ? 'row' : 'column'} spacing={2}>
-          <CustomSelect title="Select Day" options={options} />
-          <CustomInput title="Slots per day" />
-          {matches ? (
-            <Box>
-              <Fab color="primary" aria-label="add">
-                <AddRounded />
-              </Fab>
+    <DashboardLayout title="Institute Details">
+      <Container
+        maxWidth="xl"
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          p: 3,
+        }}
+      >
+        <Stack spacing={2}>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <Box pr={1}>
+              <EventRounded fontSize="medium" />
             </Box>
-          ) : (
-            <Button
-              variant="contained"
-              sx={{ py: 2, px: 2 }}
-              size="medium"
-              startIcon={<AddRounded color="primary.main" />}
-              fullWidth
+            <Typography
+              variant="h6"
+              color="primary.main"
+              fontWeight="fontWeightBold"
             >
-              Add
-            </Button>
-          )}
+              Institute Name
+            </Typography>
+          </Box>
+          <TextField
+            label="Institute Name"
+            placeholder="Enter Institute Name"
+          ></TextField>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <Box pr={1}>
+              <EventRounded fontSize="medium" />
+            </Box>
+            <Typography
+              variant="h6"
+              color="primary.main"
+              fontWeight="fontWeightBold"
+            >
+              Working Days
+            </Typography>
+          </Box>
+          <Stack direction={matches ? 'row' : 'column'} spacing={2}>
+            <CustomSelect title="Select Day" options={options} />
+            <TextField type="number" label="Slots per day" />
+            {matches ? (
+              <Box>
+                <Fab color="primary" aria-label="add">
+                  <AddRounded />
+                </Fab>
+              </Box>
+            ) : (
+              <Button
+                variant="contained"
+                sx={{ py: 2, px: 2 }}
+                size="medium"
+                startIcon={<AddRounded color="primary.main" />}
+                fullWidth
+              >
+                Add
+              </Button>
+            )}
+          </Stack>
+          <Box>
+            <DataGrid
+              autoHeight
+              rows={rows}
+              columns={columns}
+              rowsPerPageOptions={[5]}
+              checkboxSelection
+              disableSelectionOnClick
+              components={{ Toolbar: CustomToolbar }}
+            />
+          </Box>
         </Stack>
-        <Box>
-          <DataGrid
-            autoHeight
-            rows={rows}
-            columns={columns}
-            rowsPerPageOptions={[5]}
-            checkboxSelection={true}
-            components={{ Toolbar: CustomToolbar }}
-          />
-        </Box>
-      </Stack>
-    </Container>
+      </Container>
+    </DashboardLayout>
   )
 }
 
