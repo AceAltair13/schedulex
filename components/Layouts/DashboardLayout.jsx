@@ -180,8 +180,9 @@ function DashboardLayout({ title, children }) {
         }}
       >
         <Container>
-          <Toolbar />
-          {children}
+          <Toolbar/>
+          <Box pt={4}>
+          {children}</Box>
         </Container>
       </Box>
     </Box>
