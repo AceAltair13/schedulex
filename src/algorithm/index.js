@@ -1,13 +1,13 @@
-import data from "./data/inputv3.js";
+import { working_days, classrooms, school_data } from "./data/inputv1.js";
 import writeFile from "../helpers/writeFile.js";
 import prettify from "../helpers/prettify.js";
 import GeneticTimeTable from "./model/GeneticTimeTable.js";
 
 // Create a new GeneticTimeTable object
 let geneticTimeTable = new GeneticTimeTable(
-    data.working_days,
-    data.classrooms,
-    data.school_data,
+    working_days,
+    classrooms,
+    school_data,
     true
 );
 

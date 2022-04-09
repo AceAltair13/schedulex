@@ -19,11 +19,33 @@ import { useTheme } from "@emotion/react";
 import CustomToolbar from "../../components/Dashboard/CustomToolbar";
 import DashboardLayout from "../../layouts/DashboardLayout";
 import { useDispatch, useSelector } from "react-redux";
+import DoneIcon from "@mui/icons-material/Done";
+import { setInstituteName, setWorkingDay } from "../../features/instituteSlice";
 
 const InstituteDetails = () => {
     const dispatch = useDispatch();
     const [day, setDay] = useState("");
-    const { unusedDays } = useSelector((state) => state.institute);
+    const [slots, setSlots] = useState(0);
+    const [name, setName] = useState("");
+    const { workingDays, nonWorkingDays } = useSelector(
+        (state) => state.institute
+    );
+
+    const handleInstituteNameChange = (e) => {
+        setName(e.target.value);
+    };
+
+    const handleDayChange = (e) => {
+        setDay(e.target.value);
+    };
+
+    const handleSlotChange = (e) => {
+        setSlots(e.target.value);
+    };
+
+    const addWorkingDay = () => {
+        dispatch(setWorkingDay({ day, slots, id: day }));
+    };
 
     const columns = [
         {
@@ -41,7 +63,6 @@ const InstituteDetails = () => {
             flex: 1,
         },
     ];
-    const rows = [];
 
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up("md"));
@@ -52,7 +73,22 @@ const InstituteDetails = () => {
                 <Typography variant="h6" gutterBottom>
                     Institute Name
                 </Typography>
-                <TextField label="Enter Institute Name" />
+                <Stack direction="row" spacing={2}>
+                    <TextField
+                        label="Enter Institute Name"
+                        fullWidth
+                        value={name}
+                        onChange={handleInstituteNameChange}
+                    />
+                    <Box>
+                        <Fab
+                            color="primary"
+                            onClick={() => dispatch(setInstituteName(name))}
+                        >
+                            <DoneIcon />
+                        </Fab>
+                    </Box>
+                </Stack>
                 <Box />
                 <Typography variant="h6" gutterBottom>
                     Days of the week
@@ -62,20 +98,24 @@ const InstituteDetails = () => {
                         <InputLabel>Select Day</InputLabel>
                         <Select
                             value={day}
-                            onChange={(e) => setDay(e.target.value)}
+                            onChange={handleDayChange}
                             label="Select Day"
                         >
-                            {unusedDays.map((day) => (
+                            {nonWorkingDays.map((day) => (
                                 <MenuItem value={day} key={day}>
                                     {day}
                                 </MenuItem>
                             ))}
                         </Select>
                     </FormControl>
-                    <TextField type="number" label="Slots per day" />
+                    <TextField
+                        type="number"
+                        label="Slots per day"
+                        onClick={handleSlotChange}
+                    />
                     {matches ? (
                         <Box>
-                            <Fab color="primary" aria-label="add">
+                            <Fab color="primary" onClick={addWorkingDay}>
                                 <AddRounded />
                             </Fab>
                         </Box>
@@ -94,7 +134,7 @@ const InstituteDetails = () => {
                 <Box />
                 <DataGrid
                     autoHeight
-                    rows={rows}
+                    rows={workingDays}
                     columns={columns}
                     rowsPerPageOptions={[5]}
                     checkboxSelection

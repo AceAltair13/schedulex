@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     name: "",
-    unusedDays: [
+    nonWorkingDays: [
         "Sunday",
         "Monday",
         "Tuesday",
@@ -11,7 +11,7 @@ const initialState = {
         "Friday",
         "Saturday",
     ],
-    usedDays: [],
+    workingDays: [],
 };
 
 const instituteSlice = createSlice({
@@ -21,14 +21,14 @@ const instituteSlice = createSlice({
         setInstituteName: (state, action) => {
             state.name = action.payload;
         },
-        setUsedDay: (state, action) => {
-            state.usedDays.push(action.payload);
-            state.unusedDays = state.unusedDays.filter(
+        setWorkingDay: (state, action) => {
+            state.workingDays.push(action.payload);
+            state.nonWorkingDays = state.nonWorkingDays.filter(
                 (day) => day !== action.payload
             );
         },
     },
 });
 
-export const { setInstituteName } = instituteSlice.actions;
+export const { setInstituteName, setWorkingDay } = instituteSlice.actions;
 export default instituteSlice.reducer;
