@@ -6,9 +6,9 @@ const Footer = () => {
         <Container maxWidth="sm" sx={{ mt: "auto", p: 4 }}>
             <Typography variant="body2" textAlign="center">
                 Copyright &copy;{" "}
-                <NextLink href="/" passHref>
+                <NextLink href="https://github.com/AceAltair13/schedulex" passHref>
                     <Link color="inherit" underline="hover">
-                        {"<ProjectName>"}
+                        ScheduleX
                     </Link>
                 </NextLink>{" "}
                 {new Date().getFullYear()}
