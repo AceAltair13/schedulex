@@ -1,12 +1,10 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import CssBaseline from "@mui/material/CssBaseline";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
@@ -18,11 +16,9 @@ import BadgeIcon from "@mui/icons-material/Badge";
 import SchoolIcon from "@mui/icons-material/School";
 import SubjectIcon from "@mui/icons-material/Subject";
 import MenuIcon from "@mui/icons-material/Menu";
-import Image from "next/image";
-import Logo from "../../public/images/logo.svg";
 import { useRouter } from "next/router";
 
-const drawerWidth = 260;
+const drawerWidth = 240;
 
 function DashboardLayout({ title, children }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -35,7 +31,15 @@ function DashboardLayout({ title, children }) {
   const drawer = (
     <div>
       <Box sx={{ p: 2, mb: 7 }}>
-        <Image src={Logo} alt="logo" />
+        <Typography
+          variant="h4"
+          sx={{ flexGrow: 1 }}
+          color="primary.main"
+          fontWeight="fontWeightBold"
+          textAlign="center"
+        >
+          ScheduleX
+        </Typography>
       </Box>
       <List>
         <ListItem
@@ -180,9 +184,8 @@ function DashboardLayout({ title, children }) {
         }}
       >
         <Container>
-          <Toolbar/>
-          <Box pt={4}>
-          {children}</Box>
+          <Toolbar />
+          <Box pt={4}>{children}</Box>
         </Container>
       </Box>
     </Box>
