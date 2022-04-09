@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Stepper, Step, StepLabel, Button, Stack } from "@mui/material";
+import { Box, Stepper, Step, StepLabel, Button } from "@mui/material";
 import { useSelector } from "react-redux";
 
 const steps = [

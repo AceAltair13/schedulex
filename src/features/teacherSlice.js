@@ -14,5 +14,5 @@ const teacherSlice = createSlice({
     },
 });
 
-const { setTeacher } = teacherSlice.actions;
+export const { setTeacher } = teacherSlice.actions;
 export default teacherSlice.reducer;
