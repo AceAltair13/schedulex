@@ -1,12 +1,13 @@
 import React from "react";
-import { FormControl, InputLabel, Select } from "@mui/material";
-
-const CustomSelect = ({ title, placeholder, children, props }) => {
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+const CustomSelect = ({ title, placeholder, options, props }) => {
   return (
     <FormControl fullWidth>
       <InputLabel>{title}</InputLabel>
       <Select variant="outlined" label={title} {...props}>
-        {children}
+        {options.map((option) => {
+          <MenuItem value={option}>{option}</MenuItem>;
+        })}
       </Select>
     </FormControl>
   );
