@@ -32,7 +32,6 @@ import {
   
     return (
       <>
-        <Toolbar />
         <Grid
           container
           justifyContent="center"
@@ -73,11 +72,11 @@ import {
                 }}
               >
                 <Button
-                  onClick={(e) => router.push("/institute-details")}
+                  onClick={(e) => router.push("/dashboard")}
                   variant="contained"
                   sx={{ px: 5, py: 1.5 }}
                 >
-                  Get Started
+                  Create Your Timetable
                 </Button>
               </Box>
             </Stack>

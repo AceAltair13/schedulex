@@ -17,6 +17,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import MenuIcon from "@mui/icons-material/Menu";
 import routes from "./routes";
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 const Navbar = () => {
     const router = useRouter();
@@ -41,6 +42,7 @@ const Navbar = () => {
                     {route.label}
                 </Button>
             ))}
+            <IconButton href="https://github.com/AceAltair13/schedulex"><GitHubIcon fontSize="large" color="primary"/></IconButton>
         </Stack>
     );
     const mobileMenu = (
@@ -59,10 +61,10 @@ const Navbar = () => {
                 <Typography
                     variant="h4"
                     sx={{ flexGrow: 1 }}
-                    color="primary.main"
+                    color="primary.dark"
                     fontWeight="fontWeightBold"
                 >
-                    {"ScheduleX"}
+                    ScheduleX
                 </Typography>
                 <IconButton
                     {...bindTrigger(popupState)}

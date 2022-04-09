@@ -4,10 +4,6 @@ export default [
         label: "Home",
     },
     {
-        path: "/institute-details",
-        label: "Institute Details",
-    },
-    {
         path: "/about",
         label: "About",
     },
