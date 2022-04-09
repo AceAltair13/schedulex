@@ -60,7 +60,7 @@ const TeacherDetails = () => {
 
 
     return (
-        <DashboardLayout title="Teacher Details">
+        <DashboardLayout title="Teachers">
             <Container
                 maxWidth="xl"
                 sx={{

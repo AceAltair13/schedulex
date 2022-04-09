@@ -1,41 +1,41 @@
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
-import ClassIcon from '@mui/icons-material/Class';
-import BadgeIcon from '@mui/icons-material/Badge';
-import SchoolIcon from '@mui/icons-material/School';
-import SubjectIcon from '@mui/icons-material/Subject';
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+import ClassIcon from "@mui/icons-material/Class";
+import BadgeIcon from "@mui/icons-material/Badge";
+import SchoolIcon from "@mui/icons-material/School";
+import SubjectIcon from "@mui/icons-material/Subject";
 
 const routes = [
     {
-        icon: <DashboardIcon />,
+        icon: DashboardIcon,
         title: "Dashboard",
-        route: "/dashboard"
+        route: "/dashboard",
     },
     {
-        icon: <AccountBalanceIcon />,
+        icon: AccountBalanceIcon,
         title: "Institute Details",
-        route: "/dashboard/institute-details"
+        route: "/dashboard/institute-details",
     },
     {
-        icon: <ClassIcon />,
+        icon: ClassIcon,
         title: "Classroom Details",
-        route: "/dashboard/classroom-details"
+        route: "/dashboard/classroom-details",
     },
     {
-        icon: <BadgeIcon />,
+        icon: BadgeIcon,
         title: "Course Details",
-        route: "/dashboard/course-details"
+        route: "/dashboard/course-details",
     },
     {
-        icon: <SchoolIcon />,
+        icon: SchoolIcon,
         title: "Teacher Details",
-        route: "/dashboard/teacher-details"
+        route: "/dashboard/teacher-details",
     },
     {
-        icon: <SubjectIcon />,
+        icon: SubjectIcon,
         title: "Subject Details",
-        route: "/dashboard/subject-details"
+        route: "/dashboard/subject-details",
     },
-]
+];
 
-export default routes
+export default routes;

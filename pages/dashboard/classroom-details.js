@@ -39,7 +39,7 @@ const ClassroomDetails = () => {
   const matches = useMediaQuery(theme.breakpoints.up('md'))
 
   return (
-    <DashboardLayout title="Classroom Details">
+    <DashboardLayout title="Classrooms">
       <Container
         maxWidth="xl"
         sx={{

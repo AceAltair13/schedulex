@@ -22,7 +22,7 @@ export default {
             slots: 6,
         },
     ],
-    classrooms: ["8A","8B","8C","9A","9B","9C","10A","10B","10C"],
+    classrooms: ["8A", "8B", "8C", "9A", "9B", "9C" , "10A", "10B", "10C" ],
     school_data: [
         {
             department: "8",
@@ -33,8 +33,8 @@ export default {
                     total_slots: 4,
                     faculty: [
                         {
-                            teacher: "F1",
-                            classrooms: ["8A","8B","8C"],
+                            teacher: "F-1",
+                            classrooms: ["8A", "8B", "8C"],
                             slots: 4,
                         },
                     ],
@@ -44,8 +44,8 @@ export default {
                     total_slots: 4,
                     faculty: [
                         {
-                            teacher: "F2",
-                            classrooms: ["8A","8B","8C"],
+                            teacher: "F-2",
+                            classrooms: ["8A", "8B", "8C"],
                             slots: 4,
                         },
                     ],
@@ -55,8 +55,8 @@ export default {
                     total_slots: 4,
                     faculty: [
                         {
-                            teacher: "F3",
-                            classrooms: ["8A","8B","8C"],
+                            teacher: "F-3",
+                            classrooms: ["8A", "8B", "8C"],
                             slots: 4,
                         },
                     ],
@@ -66,8 +66,8 @@ export default {
                     total_slots: 4,
                     faculty: [
                         {
-                            teacher: "F5",
-                            classrooms: ["8A","8B","8C"],
+                            teacher: "F-5",
+                            classrooms: ["8A", "8B", "8C"],
                             slots: 4,
                         },
                     ],
@@ -77,20 +77,20 @@ export default {
                     total_slots: 4,
                     faculty: [
                         {
-                            teacher: "F6",
-                            classrooms: ["8A","8B","8C"],
+                            teacher: "F-6",
+                            classrooms: ["8A", "8B", "8C"],
                             slots: 4,
                         },
                     ],
                 },
-                
+
                 {
                     subject_name: "M1",
                     total_slots: 2,
                     faculty: [
                         {
-                            teacher: "F7",
-                            classrooms: ["8A","8B","8C"],
+                            teacher: "F-7",
+                            classrooms: ["8A", "8B", "8C"],
                             slots: 2,
                         },
                     ],
@@ -100,8 +100,8 @@ export default {
                     total_slots: 2,
                     faculty: [
                         {
-                            teacher: "F8",
-                            classrooms: ["8A","8B","8C"],
+                            teacher: "F-8",
+                            classrooms: ["8A", "8B", "8C"],
                             slots: 2,
                         },
                     ],
@@ -111,8 +111,8 @@ export default {
                     total_slots: 2,
                     faculty: [
                         {
-                            teacher: "F9",
-                            classrooms: ["8A","8B","8C"],
+                            teacher: "F-9",
+                            classrooms: ["8A", "8B", "8C"],
                             slots: 2,
                         },
                     ],
@@ -122,8 +122,8 @@ export default {
                     total_slots: 2,
                     faculty: [
                         {
-                            teacher: "F10",
-                            classrooms: ["8A","8B","8C"],
+                            teacher: "F-10",
+                            classrooms: ["8A", "8B", "8C"],
                             slots: 2,
                         },
                     ],
@@ -133,8 +133,8 @@ export default {
                     total_slots: 2,
                     faculty: [
                         {
-                            teacher: "F11",
-                            classrooms: ["8A","8B","8C"],
+                            teacher: "F-11",
+                            classrooms: ["8A", "8B", "8C"],
                             slots: 2,
                         },
                     ],
@@ -150,8 +150,8 @@ export default {
                     total_slots: 4,
                     faculty: [
                         {
-                            teacher: "F1",
-                            classrooms: ["9A","9B","9C"],
+                            teacher: "F.1",
+                            classrooms: ["9A", "9B", "9C"],
                             slots: 4,
                         },
                     ],
@@ -161,8 +161,8 @@ export default {
                     total_slots: 4,
                     faculty: [
                         {
-                            teacher: "F2",
-                            classrooms: ["9A","9B","9C"],
+                            teacher: "F.2",
+                            classrooms: ["9A", "9B", "9C"],
                             slots: 4,
                         },
                     ],
@@ -172,8 +172,8 @@ export default {
                     total_slots: 4,
                     faculty: [
                         {
-                            teacher: "F3",
-                            classrooms: ["9A","9B","9C"],
+                            teacher: "F.3",
+                            classrooms: ["9A", "9B", "9C"],
                             slots: 4,
                         },
                     ],
@@ -183,8 +183,8 @@ export default {
                     total_slots: 4,
                     faculty: [
                         {
-                            teacher: "F5",
-                            classrooms: ["9A","9B","9C"],
+                            teacher: "F.5",
+                            classrooms: ["9A", "9B", "9C"],
                             slots: 4,
                         },
                     ],
@@ -194,20 +194,20 @@ export default {
                     total_slots: 4,
                     faculty: [
                         {
-                            teacher: "F6",
-                            classrooms: ["9A","9B","9C"],
+                            teacher: "F.6",
+                            classrooms: ["9A", "9B", "9C"],
                             slots: 4,
                         },
                     ],
                 },
-                
+
                 {
                     subject_name: "M1",
                     total_slots: 2,
                     faculty: [
                         {
-                            teacher: "F7",
-                            classrooms: ["9A","9B","9C"],
+                            teacher: "F.7",
+                            classrooms: ["9A", "9B", "9C"],
                             slots: 2,
                         },
                     ],
@@ -217,8 +217,8 @@ export default {
                     total_slots: 2,
                     faculty: [
                         {
-                            teacher: "F8",
-                            classrooms: ["9A","9B","9C"],
+                            teacher: "F.8",
+                            classrooms: ["9A", "9B", "9C"],
                             slots: 2,
                         },
                     ],
@@ -228,8 +228,8 @@ export default {
                     total_slots: 2,
                     faculty: [
                         {
-                            teacher: "F9",
-                            classrooms: ["9A","9B","9C"],
+                            teacher: "F.9",
+                            classrooms: ["9A", "9B", "9C"],
                             slots: 2,
                         },
                     ],
@@ -239,8 +239,8 @@ export default {
                     total_slots: 2,
                     faculty: [
                         {
-                            teacher: "F10",
-                            classrooms: ["9A","9B","9C"],
+                            teacher: "F.10",
+                            classrooms: ["9A", "9B", "9C"],
                             slots: 2,
                         },
                     ],
@@ -250,8 +250,8 @@ export default {
                     total_slots: 2,
                     faculty: [
                         {
-                            teacher: "F11",
-                            classrooms: ["9A","9B","9C"],
+                            teacher: "F.11",
+                            classrooms: ["9A", "9B", "9C"],
                             slots: 2,
                         },
                     ],
@@ -267,8 +267,8 @@ export default {
                     total_slots: 4,
                     faculty: [
                         {
-                            teacher: "F1",
-                            classrooms: ["10A","10B","10C"],
+                            teacher: "FF1",
+                            classrooms: ["10A", "10B", "10C"],
                             slots: 4,
                         },
                     ],
@@ -278,8 +278,8 @@ export default {
                     total_slots: 4,
                     faculty: [
                         {
-                            teacher: "F2",
-                            classrooms: ["10A","10B","10C"],
+                            teacher: "FF2",
+                            classrooms: ["10A", "10B", "10C"],
                             slots: 4,
                         },
                     ],
@@ -289,8 +289,8 @@ export default {
                     total_slots: 4,
                     faculty: [
                         {
-                            teacher: "F3",
-                            classrooms: ["10A","10B","10C"],
+                            teacher: "FF3",
+                            classrooms: ["10A", "10B", "10C"],
                             slots: 4,
                         },
                     ],
@@ -300,8 +300,8 @@ export default {
                     total_slots: 4,
                     faculty: [
                         {
-                            teacher: "F5",
-                            classrooms: ["10A","10B","10C"],
+                            teacher: "FF5",
+                            classrooms: ["10A", "10B", "10C"],
                             slots: 4,
                         },
                     ],
@@ -311,20 +311,20 @@ export default {
                     total_slots: 4,
                     faculty: [
                         {
-                            teacher: "F6",
-                            classrooms: ["10A","10B","10C"],
+                            teacher: "FF6",
+                            classrooms: ["10A", "10B", "10C"],
                             slots: 4,
                         },
                     ],
                 },
-                
+
                 {
                     subject_name: "M1",
                     total_slots: 2,
                     faculty: [
                         {
-                            teacher: "F7",
-                            classrooms: ["10A","10B","10C"],
+                            teacher: "FF7",
+                            classrooms: ["10A", "10B", "10C"],
                             slots: 2,
                         },
                     ],
@@ -334,8 +334,8 @@ export default {
                     total_slots: 2,
                     faculty: [
                         {
-                            teacher: "F8",
-                            classrooms: ["10A","10B","10C"],
+                            teacher: "FF8",
+                            classrooms: ["10A", "10B", "10C"],
                             slots: 2,
                         },
                     ],
@@ -345,34 +345,13 @@ export default {
                     total_slots: 2,
                     faculty: [
                         {
-                            teacher: "F9",
-                            classrooms: ["10A","10B","10C"],
+                            teacher: "FF9",
+                            classrooms: ["10A", "10B", "10C"],
                             slots: 2,
                         },
                     ],
                 },
-                {
-                    subject_name: "SS",
-                    total_slots: 2,
-                    faculty: [
-                        {
-                            teacher: "F10",
-                            classrooms: ["10A","10B","10C"],
-                            slots: 2,
-                        },
-                    ],
-                },
-                {
-                    subject_name: "DRW",
-                    total_slots: 2,
-                    faculty: [
-                        {
-                            teacher: "F11",
-                            classrooms: ["10A","10B","10C"],
-                            slots: 2,
-                        },
-                    ],
-                },
+               
             ],
         },
     ],

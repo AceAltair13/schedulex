@@ -1,4 +1,5 @@
 import _ from "lodash";
+import Gene from "./model/Gene.js";
 
 const calculateCosts = (
     timetables,
@@ -61,7 +62,11 @@ const calculateCosts = (
     //         Soft Constraints
     //
     // 1. Duplicate consecutive teacher should be avoided in a single day.
+<<<<<<< HEAD
     // 2. Distribute lecs in regular intervals.
+=======
+    // 2. Lectures should be divided uniformly in tine slots
+>>>>>>> c62a6a2d9bb35daa5f92b0e7938b13c0a79f2176
     // ================================
 
     // Duplicate consecutive teacher should be avoided in a single day.
@@ -81,6 +86,7 @@ const calculateCosts = (
     });
 
 
+<<<<<<< HEAD
 
     // 2. Distribute lecs in regular intervals.
     _.forEach(classrooms, (classroom) => {
@@ -157,6 +163,50 @@ const calculateCosts = (
 
 
 
+=======
+    // 2. Lectures should be divided uniformly in tine slots;
+   /*  let total_slots = 0;
+    for(let i=0;i<days.length;i++){
+        total_slots += days[i].slots;
+    }
+
+    for(let i=0;i<subject_data.length;i++){
+        for(let j=0;j<subject_data[i].subjects.length;j++){
+            let subject_name = subject_data[i].subjects[j].subject_name;
+            for(let k=0;k<subject_data[i].subjects[j].faculty.length;k++){
+                let curr_gene_slots = subject_data[i].subjects[j].faculty[k].slots;
+                let min_gap_needed = Math.floor(total_slots/curr_gene_slots);
+                let curr_gene = new Gene(subject_data[i].subjects[j].faculty[k].teacher,subject_name);
+                for(let l=0;i<timetables.length;i++){
+                    let foundIndex  =-1;
+                    let currentIndex = 0;
+                    for(let m=0;m<timetables[l].timetable.length;m++ ){
+                        {
+                        if(subject_data[i].subjects[j].faculty[k].classrooms.includes(timetables[l].classroom)){
+                        for(let n=0;n<timetables[l].timetable[m].length;n++){
+                            if(foundIndex===-1){
+                                if(timetables[l].timetable[m][n].teacher === curr_gene.teacher && timetables[l].timetable[m][n].subject === curr_gene.subject){
+                                    foundIndex = n;
+                                    break;
+                                }
+                            }else if(timetables[l].timetable[m][n].teacher === curr_gene.teacher && timetables[l].timetable[m][n].subject === curr_gene.subject){
+                                if(currentIndex<min_gap_needed){
+                                    cost+=0.05;
+                                }
+                            }else{
+                                currentIndex++;
+                            }
+                        }
+                    }
+                }
+                        
+                    }
+
+                }
+            }
+        }
+    } */
+>>>>>>> c62a6a2d9bb35daa5f92b0e7938b13c0a79f2176
 
     return cost;
 };
