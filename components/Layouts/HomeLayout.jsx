@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import { Container, Toolbar } from "@mui/material";
 import React from "react";
 import Footer from "../Home/Footer";
 import Navbar from "../Home/Navbar";
@@ -15,6 +15,7 @@ const HomeLayout = ({ children }) => {
         }}
       >
         <Navbar />
+        <Toolbar />
         {children}
         <Footer />
       </Container>

@@ -32,7 +32,6 @@ import {
   
     return (
       <>
-        <Toolbar />
         <Grid
           container
           justifyContent="center"
