@@ -124,6 +124,8 @@ const TeacherDetails = () => {
                         columns={columns}
                         pageSize={5}
                         rowsPerPageOptions={[5]}
+                        checkboxSelection
+                        disableSelectionOnClick
                     />
                 </Box>
             </Container>
