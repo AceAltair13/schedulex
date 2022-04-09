@@ -9,7 +9,7 @@ const steps = [
   "Subject Details",
 ];
 
-const Dashboardstepper = () => {
+const DashboardStepper = () => {
   return (
     <Box sx={{ width: "100%" }}>
       <Stepper activeStep={1} alternativeLabel>
@@ -23,4 +23,4 @@ const Dashboardstepper = () => {
   );
 };
 
-export default Dashboardstepper;
+export default DashboardStepper;

@@ -3,11 +3,12 @@ import { pink, purple, } from "@mui/material/colors";
 
 const theme = createTheme({
     palette: {
-        primary: {
-            main: purple[400],
-            dark: purple[700],
-            light: purple[100],
-        },
+        // primary: {
+        //     main: purple[400],
+        //     dark: purple[700],
+        //     light: purple[100],
+        // },
+        primary: purple,
         secondary: pink,
         text: {
             primary: "#2D3743",

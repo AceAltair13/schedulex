@@ -3,37 +3,38 @@ import React from "react";
 
 const tiles = [
   {
-    count: 10,
-    title: "Classrooms",
+    count: 5,
+    title: "Work Days",
   },
   {
     count: 10,
     title: "Classrooms",
   },
   {
-    count: 10,
-    title: "Classrooms",
+    count: 6,
+    title: "Courses",
   },
   {
-    count: 10,
-    title: "Classrooms",
+    count: 20,
+    title: "Teachers",
   },
   {
-    count: 10,
-    title: "Classrooms",
+    count: 30,
+    title: "Subjects",
   },
 ];
 
 const DashboardCounterItem = ({ count, title }) => {
   return (
     <Grid item lg={2} md={4} sm={12} xs={12}>
-      <Card>
+      <Card sx={{ backgroundColor: "primary.main" }}>
         <CardContent sx={{ p: 4 }}>
-          <Stack>
+          <Stack sx={{ color: "white" }}>
             <Box
               sx={{
                 display: "flex",
                 justifyContent: "center",
+                mb: 1
               }}
             >
               <Typography variant="h3">{count}</Typography>
@@ -50,7 +51,7 @@ const DashboardCounterItem = ({ count, title }) => {
 
 const DashboardCounter = () => {
   return (
-    <Grid container spacing={4} justifyContent="center">
+    <Grid container justifyContent="space-around">
       {tiles.map((tile) => (
         <DashboardCounterItem count={tile.count} title={tile.title} />
       ))}

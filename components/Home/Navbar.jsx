@@ -61,7 +61,7 @@ const Navbar = () => {
                 <Typography
                     variant="h4"
                     sx={{ flexGrow: 1 }}
-                    color="primary.dark"
+                    color="primary.main"
                     fontWeight="fontWeightBold"
                 >
                     ScheduleX
