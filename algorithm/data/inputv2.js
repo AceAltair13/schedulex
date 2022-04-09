@@ -24,7 +24,7 @@ export default {
     ],
     classrooms: ["IT-TE5", "IT-TE6","IT-BE5", "IT-BE6", "CS-BE5"
                 , "CS-BE6","CS-TE5", "CS-TE6","EXTC-TE5",
-                 "EXTC-TE6", "EXTC-BE5", "EXTC-BE6"],
+                 "EXTC-TE6"/* , "EXTC-BE5", "EXTC-BE6" */],
     school_data: [
         {
             department: "IT",
@@ -353,7 +353,6 @@ export default {
                 {
                     subject_name: "E-DMBI",
                     total_slots: 4,
-
                     faculty: [
                         {
                             teacher: "E-AD",
@@ -383,17 +382,7 @@ export default {
                         },
                     ],
                 },
-                {
-                    subject_name: "E-WTN",
-                    total_slots: 3,
-                    faculty: [
-                        {
-                            teacher: "SR",
-                            classrooms: ["EXTC-TE5", "EXTC-TE6"],
-                            slots: 3,
-                        }
-                    ],
-                },
+                
                 {
                     subject_name: "E-AI&DS",
                     total_slots: 4,
@@ -404,7 +393,7 @@ export default {
                             slots: 3,
                         },
                         {
-                            teacher: "E-BT",
+                            teacher: "E-BT1",
                             classrooms: [ "EXTC-TE6"],
                             slots: 1,
                         },
@@ -415,25 +404,10 @@ export default {
                         }
                     ],
                 },
-                {
-                    subject_name: "E-Extra",
-                    total_slots: 5,
-                    faculty: [
-                        {
-                            teacher: "E-Ex-SR",
-                            classrooms: ["EXTC-TE5", "EXTC-TE6"],
-                            slots: 3,
-                        }, 
-                        {
-                            teacher: "E-SR",
-                            classrooms: ["EXTC-TE5", "EXTC-TE6"],
-                            slots: 2,
-                        },
-                    ],
-                },
+                
             ],
         },
-        {
+      /*   {
             department: "EXTC",
             year: 5,
             subjects: [
@@ -458,7 +432,7 @@ export default {
                     total_slots: 5,
                     faculty: [
                         {
-                            teacher: "E-SR",
+                            teacher: "E-SR2",
                             classrooms: ["EXTC-BE5", "EXTC-BE6"],
                             slots: 3,
                         },
@@ -502,6 +476,6 @@ export default {
                     ],
                 },
             ],
-        },
+        }, */
     ],
 };

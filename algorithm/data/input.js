@@ -22,7 +22,8 @@ export default {
             slots: 4,
         },
     ],
-    classrooms: ["IT-TE5", "IT-TE6","IT-BE5", "IT-BE6", "CS-BE5", "CS-BE6","CS-TE5", "CS-TE6"],
+    classrooms: ["IT-TE5", "IT-TE6","IT-BE5", "IT-BE6", 
+            "IT-FE5", "IT-FE6","IT-SE5", "IT-SE6"],
     school_data: [
         {
             department: "IT",
@@ -190,17 +191,17 @@ export default {
                     faculty: [
                         {
                             teacher: "UB",
-                            classrooms: ["CS-BE5","CS-BE6"],
+                            classrooms: ["IT-FE5","IT-FE6"],
                             slots: 2,
                         },
                         {
                             teacher: "RR",
-                            classrooms: ["CS-BE5","CS-BE6"],
+                            classrooms: ["IT-FE5","IT-FE6"],
                             slots: 2,
                         },
                         {
                             teacher: "KG",
-                            classrooms: ["CS-BE5","CS-BE6"],
+                            classrooms: ["IT-FE5","IT-FE6"],
                             slots: 1,
                         },
                     ],
@@ -211,12 +212,12 @@ export default {
                     faculty: [
                         {
                             teacher: "VD",
-                            classrooms: ["CS-BE5", "CS-BE6"],
+                            classrooms: ["IT-FE5", "IT-FE6"],
                             slots: 3,
                         },
                         {
                             teacher: "PV",
-                            classrooms: ["CS-BE5", "CS-BE6"],
+                            classrooms: ["IT-FE5", "IT-FE6"],
                             slots: 2,
                         },
                     ],
@@ -227,12 +228,12 @@ export default {
                     faculty: [
                         {
                             teacher: "NJ",
-                            classrooms: ["CS-BE5", "CS-BE6"],
+                            classrooms: ["IT-FE5", "IT-FE6"],
                             slots: 2,
                         },
                         {
                             teacher: "SS",
-                            classrooms: ["CS-BE5", "CS-BE6"],
+                            classrooms: ["IT-FE5", "IT-FE6"],
                             slots: 2,
                         },
                     ],
@@ -243,12 +244,12 @@ export default {
                     faculty: [
                         {
                             teacher: "MM",
-                            classrooms: ["CS-BE5", "CS-BE6"],
+                            classrooms: ["IT-FE5", "IT-FE6"],
                             slots: 2,
                         },
                         {
                             teacher: "MD",
-                            classrooms: ["CS-BE5", "CS-BE6"],
+                            classrooms: ["IT-FE5", "IT-FE6"],
                             slots: 2,
                         },
                     ],
@@ -265,17 +266,17 @@ export default {
                     faculty: [
                         {
                             teacher: "RS",
-                            classrooms: ["CS-TE5","CS-TE6"],
+                            classrooms: ["IT-SE5","IT-SE6"],
                             slots: 2,
                         },
                         {
                             teacher: "DP",
-                            classrooms: ["CS-TE5","CS-TE6"],
+                            classrooms: ["IT-SE5","IT-SE6"],
                             slots: 2,
                         },
                         {
                             teacher: "RF",
-                            classrooms: ["CS-TE5","CS-TE6"],
+                            classrooms: ["IT-SE5","IT-SE6"],
                             slots: 1,
                         },
                     ],
@@ -286,12 +287,12 @@ export default {
                     faculty: [
                         {
                             teacher: "VS",
-                            classrooms: ["CS-TE5", "CS-TE6"],
+                            classrooms: ["IT-SE5", "IT-SE6"],
                             slots: 3,
                         },
                         {
                             teacher: "RK",
-                            classrooms: ["CS-TE5", "CS-TE6"],
+                            classrooms: ["IT-SE5", "IT-SE6"],
                             slots: 2,
                         },
                     ],
@@ -302,12 +303,12 @@ export default {
                     faculty: [
                         {
                             teacher: "NJ",
-                            classrooms: ["CS-TE5", "CS-TE6"],
+                            classrooms: ["IT-SE5", "IT-SE6"],
                             slots: 2,
                         },
                         {
                             teacher: "SS",
-                            classrooms: ["CS-TE5", "CS-TE6"],
+                            classrooms: ["IT-SE5", "IT-SE6"],
                             slots: 2,
                         },
                     ],
@@ -318,12 +319,12 @@ export default {
                     faculty: [
                         {
                             teacher: "PV",
-                            classrooms: [ "CS-TE6"],
+                            classrooms: [ "IT-SE6"],
                             slots: 4,
                         },
                         {
                             teacher: "MM",
-                            classrooms: ["CS-TE5"],
+                            classrooms: ["IT-SE5"],
                             slots: 4,
                         },
                         
@@ -336,7 +337,7 @@ export default {
                     faculty: [
                         {
                             teacher: "UB",
-                            classrooms: ["CS-TE5", "CS-TE6"],
+                            classrooms: ["IT-SE5", "IT-SE6"],
                             slots: 2,
                         },
                     ],

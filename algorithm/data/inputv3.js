@@ -267,7 +267,7 @@ export default {
                     total_slots: 4,
                     faculty: [
                         {
-                            teacher: "F1",
+                            teacher: "FF1",
                             classrooms: ["10A", "10B", "10C"],
                             slots: 4,
                         },
@@ -278,7 +278,7 @@ export default {
                     total_slots: 4,
                     faculty: [
                         {
-                            teacher: "F2",
+                            teacher: "FF2",
                             classrooms: ["10A", "10B", "10C"],
                             slots: 4,
                         },
@@ -289,7 +289,7 @@ export default {
                     total_slots: 4,
                     faculty: [
                         {
-                            teacher: "F3",
+                            teacher: "FF3",
                             classrooms: ["10A", "10B", "10C"],
                             slots: 4,
                         },
@@ -300,7 +300,7 @@ export default {
                     total_slots: 4,
                     faculty: [
                         {
-                            teacher: "F5",
+                            teacher: "FF5",
                             classrooms: ["10A", "10B", "10C"],
                             slots: 4,
                         },
@@ -311,7 +311,7 @@ export default {
                     total_slots: 4,
                     faculty: [
                         {
-                            teacher: "F6",
+                            teacher: "FF6",
                             classrooms: ["10A", "10B", "10C"],
                             slots: 4,
                         },
@@ -323,7 +323,7 @@ export default {
                     total_slots: 2,
                     faculty: [
                         {
-                            teacher: "F7",
+                            teacher: "FF7",
                             classrooms: ["10A", "10B", "10C"],
                             slots: 2,
                         },
@@ -334,7 +334,7 @@ export default {
                     total_slots: 2,
                     faculty: [
                         {
-                            teacher: "F8",
+                            teacher: "FF8",
                             classrooms: ["10A", "10B", "10C"],
                             slots: 2,
                         },
@@ -345,7 +345,7 @@ export default {
                     total_slots: 2,
                     faculty: [
                         {
-                            teacher: "F9",
+                            teacher: "FF9",
                             classrooms: ["10A", "10B", "10C"],
                             slots: 2,
                         },
