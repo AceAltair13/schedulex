@@ -1,5 +1,4 @@
 import {
-    Container,
     Stack,
     Typography,
     Button,
@@ -8,89 +7,98 @@ import {
     Box,
     useTheme,
     useMediaQuery,
-    Toolbar,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { AddRounded, Class } from "@mui/icons-material";
 import { DataGrid } from "@mui/x-data-grid";
 import DashboardLayout from "../../layouts/DashboardLayout";
 import CustomToolbar from "../../components/Dashboard/CustomToolbar";
+import { useDispatch, useSelector } from "react-redux";
+import { setClassroom } from "../../features/classroomSlice";
 
 const columns = [
-    { field: "id", headerName: "ID", minWidth: 90 },
+    {
+        field: "srNo",
+        headerName: "Sr No",
+        flex: 1,
+        headerAlign: "center",
+        align: "center",
+    },
     {
         field: "classroomCode",
         headerName: "Classroom code",
-        minWidth: 150,
+        headerAlign: "center",
+        align: "center",
         flex: 1,
     },
 ];
 
-const rows = [
-    { id: 1, classroomCode: "Snow" },
-    { id: 2, classroomCode: "Lannister" },
-    { id: 3, classroomCode: "Lannister" },
-    { id: 4, classroomCode: "Stark" },
-    { id: 5, classroomCode: "Targaryen" },
-    { id: 6, classroomCode: "Melisandre" },
-];
 const ClassroomDetails = () => {
+    const dispatch = useDispatch();
+    const { classrooms } = useSelector((state) => state.classroom);
+    const [classroomCode, setClassroomCode] = useState("");
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up("md"));
+    const rows = classrooms.map((classroom, index) => ({
+        id: classroom,
+        srNo: index + 1,
+        classroomCode: classroom,
+    }));
+
+    const addClassroom = () => {
+        dispatch(setClassroom(classroomCode));
+        setClassroomCode("");
+    };
 
     return (
         <DashboardLayout title="Classrooms">
-            <Container
-                maxWidth="xl"
-                sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    p: 3,
-                }}
-            >
-                <Stack direction="column" spacing={2}>
-                    <Stack
-                        direction={matches ? "row" : "column"}
-                        spacing={1}
-                        alignItems="center"
-                    >
-                        <TextField
-                            label="Classroom Code"
-                            icon={Class}
-                            placeholder="Enter Classroom Code"
-                            fullWidth
-                        ></TextField>
-                        {matches ? (
-                            <Box>
-                                <Fab color="primary" aria-label="add">
-                                    <AddRounded />
-                                </Fab>
-                            </Box>
-                        ) : (
-                            <Button
-                                variant="contained"
-                                sx={{ py: 2, px: 2 }}
-                                size="medium"
-                                startIcon={<AddRounded color="primary.main" />}
-                                fullWidth
-                            >
-                                Add
-                            </Button>
-                        )}
-                    </Stack>
-
-                    <DataGrid
-                        rows={rows}
-                        columns={columns}
-                        pageSize={5}
-                        rowsPerPageOptions={[5]}
-                        checkboxSelection
-                        disableSelectionOnClick
-                        autoHeight
-                        components={{ Toolbar: CustomToolbar }}
+            <Stack direction="column" spacing={2}>
+                <Typography variant="h6" gutterBottom>
+                    Add Classrooms
+                </Typography>
+                <Stack
+                    direction={matches ? "row" : "column"}
+                    spacing={2}
+                    alignItems="center"
+                >
+                    <TextField
+                        label="Enter Classroom Code"
+                        icon={Class}
+                        fullWidth
+                        value={classroomCode}
+                        onChange={(e) => setClassroomCode(e.target.value)}
                     />
+                    {matches ? (
+                        <Box>
+                            <Fab color="primary" onClick={addClassroom}>
+                                <AddRounded />
+                            </Fab>
+                        </Box>
+                    ) : (
+                        <Button
+                            variant="contained"
+                            sx={{ py: 2, px: 2 }}
+                            size="medium"
+                            startIcon={<AddRounded color="primary.main" />}
+                            fullWidth
+                            onClick={addClassroom}
+                        >
+                            Add
+                        </Button>
+                    )}
                 </Stack>
-            </Container>
+                <Box />
+                <DataGrid
+                    rows={rows}
+                    columns={columns}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                    checkboxSelection
+                    disableSelectionOnClick
+                    autoHeight
+                    components={{ Toolbar: CustomToolbar }}
+                />
+            </Stack>
         </DashboardLayout>
     );
 };

@@ -10,6 +10,10 @@ import {
 import storage from "redux-persist/lib/storage";
 import persistCombineReducers from "redux-persist/es/persistCombineReducers";
 import instituteSlice from "../features/instituteSlice";
+import classroomSlice from "../features/classroomSlice";
+import courseSlice from "../features/courseSlice";
+import teacherSlice from "../features/teacherSlice";
+import subjectSlice from "../features/subjectSlice";
 
 const persistConfig = {
     key: "root",
@@ -19,6 +23,10 @@ const persistConfig = {
 
 const persistedReducer = persistCombineReducers(persistConfig, {
     institute: instituteSlice,
+    classroom: classroomSlice,
+    course: courseSlice,
+    teacher: teacherSlice,
+    subject: subjectSlice,
 });
 
 export default configureStore({

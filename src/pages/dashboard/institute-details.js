@@ -13,8 +13,7 @@ import {
 } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import React, { useState } from "react";
-import { EventRounded, AddRounded } from "@mui/icons-material";
-import CustomSelect from "../../components/Dashboard/CustomSelect";
+import { AddRounded } from "@mui/icons-material";
 import { useTheme } from "@emotion/react";
 import CustomToolbar from "../../components/Dashboard/CustomToolbar";
 import DashboardLayout from "../../layouts/DashboardLayout";
@@ -26,10 +25,10 @@ const InstituteDetails = () => {
     const dispatch = useDispatch();
     const [day, setDay] = useState("");
     const [slots, setSlots] = useState(0);
-    const [name, setName] = useState("");
-    const { workingDays, nonWorkingDays } = useSelector(
+    const { workingDays, nonWorkingDays, name } = useSelector(
         (state) => state.institute
     );
+    const [_name, setName] = useState(name);
 
     const handleInstituteNameChange = (e) => {
         setName(e.target.value);
@@ -77,13 +76,13 @@ const InstituteDetails = () => {
                     <TextField
                         label="Enter Institute Name"
                         fullWidth
-                        value={name}
+                        value={_name}
                         onChange={handleInstituteNameChange}
                     />
                     <Box>
                         <Fab
                             color="primary"
-                            onClick={() => dispatch(setInstituteName(name))}
+                            onClick={() => dispatch(setInstituteName(_name))}
                         >
                             <DoneIcon />
                         </Fab>
@@ -125,6 +124,7 @@ const InstituteDetails = () => {
                             sx={{ p: 2 }}
                             size="medium"
                             startIcon={<AddRounded color="primary.main" />}
+                            onClick={handleSlotChange}
                             fullWidth
                         >
                             Add

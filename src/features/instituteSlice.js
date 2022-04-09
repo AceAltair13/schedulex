@@ -24,7 +24,7 @@ const instituteSlice = createSlice({
         setWorkingDay: (state, action) => {
             state.workingDays.push(action.payload);
             state.nonWorkingDays = state.nonWorkingDays.filter(
-                (day) => day !== action.payload
+                (day) => day !== action.payload.day
             );
         },
     },

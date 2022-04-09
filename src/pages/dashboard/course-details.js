@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     Button,
-    Container,
     Stack,
     Typography,
     Fab,
@@ -11,93 +10,106 @@ import {
     TextField,
 } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import { AddRounded, Code, CodeRounded } from "@mui/icons-material";
+import { AddRounded } from "@mui/icons-material";
 import DashboardLayout from "../../layouts/DashboardLayout";
 import CustomToolbar from "../../components/Dashboard/CustomToolbar";
+import { useDispatch, useSelector } from "react-redux";
+import { setNewCourse } from "../../features/courseSlice";
 
 const columns = [
-    { field: "id", headerName: "ID", flex: 1, minWidth: 90 },
+    {
+        field: "srNo",
+        headerName: "Sr No",
+        flex: 1,
+        headerAlign: "center",
+        align: "center",
+    },
     {
         field: "courseCode",
         headerName: "Course code",
-        width: 150,
         flex: 1,
-        editable: true,
+        headerAlign: "center",
+        align: "center",
     },
     {
         field: "courseName",
         headerName: "Course Name",
-        width: 150,
         flex: 1,
-        editable: true,
+        headerAlign: "center",
+        align: "center",
     },
 ];
 
-const rows = [
-    { id: 1, courseCode: "Snow", courseName: "Jon" },
-    { id: 2, courseCode: "Lannister", courseName: "Cersei" },
-    { id: 3, courseCode: "Lannister", courseName: "Jaime" },
-    { id: 4, courseCode: "Stark", courseName: "Arya" },
-    { id: 5, courseCode: "Targaryen", courseName: "Daenerys" },
-    { id: 6, courseCode: "Melisandre", courseName: null },
-];
-
 const CourseDetails = () => {
+    const dispatch = useDispatch();
+    const [course, setCourse] = useState({ courseCode: "", courseName: "" });
+    const { courses } = useSelector((state) => state.course);
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up("md"));
+    const rows = courses.map((course, i) => ({
+        id: course.courseCode,
+        srNo: i + 1,
+        courseCode: course.courseCode,
+        courseName: course.courseName,
+    }));
+
+    const addCourse = () => {
+        dispatch(setNewCourse(course));
+        setCourse({ courseCode: "", courseName: "" });
+    };
 
     return (
         <DashboardLayout title="Courses">
-            <Container
-                maxWidth="xl"
-                sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    p: 3,
-                }}
-            >
-                <Stack spacing={3} direction="column">
-                    <Stack direction={matches ? "row" : "column"} spacing={2}>
-                        <TextField
-                            label="Course Code"
-                            placeholder="Enter Course Code"
-                            fullWidth
-                        ></TextField>
-                        <TextField
-                            label="Course Name"
-                            placeholder="Enter Course Name"
-                            fullWidth
-                        ></TextField>
-                        {matches ? (
-                            <Box>
-                                <Fab color="primary" aria-label="add">
-                                    <AddRounded />
-                                </Fab>
-                            </Box>
-                        ) : (
-                            <Button
-                                variant="contained"
-                                sx={{ py: 2, px: 2 }}
-                                size="medium"
-                                startIcon={<AddRounded color="primary.main" />}
-                                fullWidth
-                            >
-                                Add
-                            </Button>
-                        )}
-                    </Stack>
-                    <DataGrid
-                        rows={rows}
-                        columns={columns}
-                        pageSize={5}
-                        rowsPerPageOptions={[5]}
-                        checkboxSelection
-                        disableSelectionOnClick
-                        components={{ Toolbar: CustomToolbar }}
-                        autoHeight
+            <Stack spacing={2} direction="column">
+                <Typography variant="h6" gutterBottom>
+                    Add a new course
+                </Typography>
+                <Stack direction={matches ? "row" : "column"} spacing={2}>
+                    <TextField
+                        label="Course Code"
+                        fullWidth
+                        value={course.courseCode}
+                        onChange={(e) =>
+                            setCourse({ ...course, courseCode: e.target.value })
+                        }
                     />
+                    <TextField
+                        label="Course Name"
+                        fullWidth
+                        value={course.courseName}
+                        onChange={(e) =>
+                            setCourse({ ...course, courseName: e.target.value })
+                        }
+                    />
+                    {matches ? (
+                        <Box>
+                            <Fab color="primary" onClick={addCourse}>
+                                <AddRounded />
+                            </Fab>
+                        </Box>
+                    ) : (
+                        <Button
+                            variant="contained"
+                            sx={{ py: 2, px: 2 }}
+                            size="medium"
+                            startIcon={<AddRounded color="primary.main" />}
+                            fullWidth
+                        >
+                            Add
+                        </Button>
+                    )}
                 </Stack>
-            </Container>
+                <DataGrid
+                    rows={rows}
+                    columns={columns}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                    checkboxSelection
+                    disableSelectionOnClick
+                    components={{ Toolbar: CustomToolbar }}
+                    autoHeight
+                />
+            </Stack>
         </DashboardLayout>
     );
 };

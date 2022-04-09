@@ -1,28 +1,6 @@
 import { Box, Card, CardContent, Grid, Stack, Typography } from "@mui/material";
 import React from "react";
-
-const tiles = [
-    {
-        count: 5,
-        title: "Work Days",
-    },
-    {
-        count: 10,
-        title: "Classrooms",
-    },
-    {
-        count: 6,
-        title: "Courses",
-    },
-    {
-        count: 20,
-        title: "Teachers",
-    },
-    {
-        count: 30,
-        title: "Subjects",
-    },
-];
+import { useSelector } from "react-redux";
 
 const DashboardCounterItem = ({ count, title }) => {
     return (
@@ -50,15 +28,29 @@ const DashboardCounterItem = ({ count, title }) => {
 };
 
 const DashboardCounter = () => {
+    const { workingDays } = useSelector((state) => state.institute);
+    const { classrooms } = useSelector((state) => state.classroom);
+    const { courses } = useSelector((state) => state.course);
+    const { teachers } = useSelector((state) => state.teacher);
+    const { subjects } = useSelector((state) => state.subject);
+
     return (
         <Grid
             container
             justifyContent="space-around"
             spacing={{ md: 1, sm: 2, xs: 3 }}
         >
-            {tiles.map((tile) => (
-                <DashboardCounterItem count={tile.count} title={tile.title} />
-            ))}
+            <DashboardCounterItem
+                count={workingDays.length}
+                title="Work Days"
+            />
+            <DashboardCounterItem
+                count={classrooms.length}
+                title="Classrooms"
+            />
+            <DashboardCounterItem count={courses.length} title="Courses" />
+            <DashboardCounterItem count={teachers.length} title="Teachers" />
+            <DashboardCounterItem count={subjects.length} title="Subjects" />
         </Grid>
     );
 };
