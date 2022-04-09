@@ -7,32 +7,32 @@ import SubjectIcon from '@mui/icons-material/Subject';
 
 const routes = [
     {
-        icon: DashboardIcon,
+        icon: <DashboardIcon />,
         title: "Dashboard",
         route: "/dashboard"
     },
     {
-        icon: AccountBalanceIcon,
+        icon: <AccountBalanceIcon />,
         title: "Institute Details",
         route: "/dashboard/institute-details"
     },
     {
-        icon: ClassIcon,
+        icon: <ClassIcon />,
         title: "Classroom Details",
         route: "/dashboard/classroom-details"
     },
     {
-        icon: BadgeIcon,
+        icon: <BadgeIcon />,
         title: "Course Details",
         route: "/dashboard/course-details"
     },
     {
-        icon: SchoolIcon,
+        icon: <SchoolIcon />,
         title: "Teacher Details",
         route: "/dashboard/teacher-details"
     },
     {
-        icon: SubjectIcon,
+        icon: <SubjectIcon />,
         title: "Subject Details",
         route: "/dashboard/subject-details"
     },

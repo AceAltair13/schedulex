@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import DashboardLayout from "../../components/Layouts/DashboardLayout";
 
 const index = () => {
   return (
-    <div>index</div>
-  )
-}
+    <DashboardLayout title="Dashboard">
+      <h1>Dashboard</h1>
+    </DashboardLayout>
+  );
+};
 
-export default index
+export default index;
