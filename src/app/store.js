@@ -14,6 +14,7 @@ import classroomSlice from "../features/classroomSlice";
 import courseSlice from "../features/courseSlice";
 import teacherSlice from "../features/teacherSlice";
 import subjectSlice from "../features/subjectSlice";
+import timetableSlice from "../features/timetableSlice";
 
 const persistConfig = {
     key: "root",
@@ -27,6 +28,7 @@ const persistedReducer = persistCombineReducers(persistConfig, {
     course: courseSlice,
     teacher: teacherSlice,
     subject: subjectSlice,
+    timetable: timetableSlice,
 });
 
 export default configureStore({
