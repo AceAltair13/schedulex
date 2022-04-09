@@ -109,7 +109,7 @@ const InstituteDetails = () => {
             ) : (
               <Button
                 variant="contained"
-                sx={{ py: 2, px: 2 }}
+                sx={{ p: 2 }}
                 size="medium"
                 startIcon={<AddRounded color="primary.main" />}
                 fullWidth
