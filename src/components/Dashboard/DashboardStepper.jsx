@@ -3,7 +3,10 @@ import { Box, Stepper, Step, StepLabel, Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import GeneticTimeTable from "../../algorithm/model/GeneticTimeTable";
 import data from "../../algorithm/data/input";
-import { setTimetableGenerating } from "../../features/timetableSlice";
+import {
+  setNewTimetable,
+  setTimetableGenerating,
+} from "../../features/timetableSlice";
 
 const steps = [
   "Institute Details",
@@ -35,8 +38,17 @@ const DashboardStepper = () => {
   );
   const runAlgorithm = async () => {
     dispatch(setTimetableGenerating(true));
-    let bestChild = await geneticTimeTable.run(dispatch);
-    console.log(bestChild);
+    setTimeout(async () => {
+      let bestChild = await geneticTimeTable.run(dispatch);
+      dispatch(
+        setNewTimetable({
+          ...JSON.parse(JSON.stringify(bestChild)),
+          timestamp: new Date(),
+        })
+      );
+      dispatch(setTimetableGenerating(false));
+      console.log(bestChild);
+    }, 2000);
   };
 
   return (
@@ -55,13 +67,13 @@ const DashboardStepper = () => {
           variant="contained"
           color="primary"
           sx={{ py: 2, px: 3 }}
-          disabled={
-            workingDays.length === 0 ||
-            classrooms.length === 0 ||
-            courses.length === 0 ||
-            teachers.length === 0 ||
-            subjects.length === 0
-          }
+          // disabled={
+          //   workingDays.length === 0 ||
+          //   classrooms.length === 0 ||
+          //   courses.length === 0 ||
+          //   teachers.length === 0 ||
+          //   subjects.length === 0
+          // }
           onClick={runAlgorithm}
         >
           Generate Timetable Now

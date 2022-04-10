@@ -37,7 +37,7 @@ export default class GeneticTimeTable {
   }
 
   // Returns the best generated timetable
-  run(dispatch) {
+  run() {
     let generation = 0;
     let previousBestCost = 0;
     let similarityCount = 0;
@@ -97,7 +97,6 @@ export default class GeneticTimeTable {
       _population = nextGeneration;
       generation++;
     }
-    dispatch(setTimetableGenerating(false));
     return _population[0];
   }
 }
