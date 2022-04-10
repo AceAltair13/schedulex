@@ -6,6 +6,7 @@ import InstituteDetails from "./pages/dashboard/institute-details";
 import SubjectDetails from "./pages/dashboard/subject-details";
 import TeacherDetails from "./pages/dashboard/teacher-details";
 import Home from "./pages/home";
+import GeneratedTimetable from "./pages/dashboard/generated-timetable";
 
 const routes = [
     {
@@ -40,6 +41,10 @@ const routes = [
         path: "/dashboard/subject-details",
         component: SubjectDetails,
     },
+    {
+        path: "/dashboard/generated-timetable",
+        component: GeneratedTimetable,
+    }
 ];
 
 export default routes;
