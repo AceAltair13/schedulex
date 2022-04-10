@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     timetables: [],
-    generating: true,
+    generating: false,
 };
 
 const timetableSlice = createSlice({

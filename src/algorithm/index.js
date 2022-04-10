@@ -12,8 +12,8 @@ let geneticTimeTable = new GeneticTimeTable(
 );
 
 // Run the genetic algorithm
-let bestSolution = geneticTimeTable.run();
+// let bestSolution = geneticTimeTable.run();
 
 // Write the best solution to a file
-prettify(bestSolution);
-writeFile("bestSolution", bestSolution);
+// prettify(bestSolution);
+// writeFile("bestSolution", bestSolution);

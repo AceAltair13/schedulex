@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import DashboardLayout from "../../layouts/DashboardLayout";
 import {
     TextField,
@@ -10,118 +10,124 @@ import {
     useTheme,
     useMediaQuery,
     Container,
+    Typography
 } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { CodeRounded, PersonRounded, AddRounded } from "@mui/icons-material";
+import { useSelector, useDispatch } from "react-redux";
+import { setTeacher } from "../../features/teacherSlice";
 
 const columns = [
     {
         field: "srNo",
         headerName: "Sr No",
-        width: 100,
+        flex: 1,
         align: "center",
         headerAlign: "center",
     },
     {
         field: "teacherCode",
         headerName: "Teacher Code",
-        width: 120,
+        flex: 1,
         align: "center",
         headerAlign: "center",
     },
     {
         field: "teacherName",
         headerName: "Teacher Name",
-        minWidth: 200,
         flex: 1,
         align: "center",
         headerAlign: "center",
     },
 ];
 
-const rows = [
-    { id: 1, srNo: 1, teacherCode: "T-001", teacherName: "Teacher 1" },
-    { id: 2, srNo: 2, teacherCode: "T-002", teacherName: "Teacher 2" },
-    { id: 3, srNo: 3, teacherCode: "T-003", teacherName: "Teacher 3" },
-    { id: 4, srNo: 4, teacherCode: "T-004", teacherName: "Teacher 4" },
-    { id: 5, srNo: 5, teacherCode: "T-005", teacherName: "Teacher 5" },
-];
-
 const TeacherDetails = () => {
+    const dispatch = useDispatch();
+    const { teachers } = useSelector(state => state.teacher)
+    const [teacherDetails, setTeacherDetails] = useState({ name: '', code: '' })
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up("md"));
+    const rows = teachers.map((teacher, index) => ({
+        id: index,
+        srNo: index + 1,
+        teacherCode: teacher.code,
+        teacherName: teacher.name,
+    }));
+
+    const addTeacher = () => {
+        dispatch(setTeacher(teacherDetails))
+        setTeacherDetails({ name: '', code: '' })
+    }
 
     return (
         <DashboardLayout title="Teachers">
-            <Container
-                maxWidth="xl"
+            <Grid
+                container
+                spacing={2}
                 sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    minHeight: "100vh",
-                    p: 3,
+                    alignItems: "center",
+                    textAlign: "center",
                 }}
             >
-                <Grid
-                    container
-                    spacing={3}
-                    sx={{
-                        alignItems: "center",
-                        textAlign: "center",
-                    }}
-                >
-                    <Grid item xs={12} md={6}>
-                        <TextField
-                            label="Teacher Code"
-                            variant="outlined"
-                            fullWidth
-                            placeholder="Enter Teacher Code"
-                        />
-                    </Grid>
-                    <Grid item xs={12} md={5}>
-                        <TextField
-                            label="Teacher Name"
-                            variant="outlined"
-                            fullWidth
-                            placeholder="Enter Teacher Name"
-                        />
-                    </Grid>
-                    <Grid
-                        item
-                        md={1}
-                        xs={12}
-                        sx={{ textAlign: { xs: "center" } }}
-                    >
-                        {matches ? (
-                            <Fab color="primary" aria-label="add" type="submit">
-                                <AddRounded />
-                            </Fab>
-                        ) : (
-                            <Button
-                                variant="contained"
-                                sx={{ py: 2, px: 2 }}
-                                size="medium"
-                                startIcon={<AddRounded color="primary" />}
-                                type="submit"
-                                fullWidth
-                            >
-                                Add
-                            </Button>
-                        )}
-                    </Grid>
+                <Grid item xs={12}>
+                    <Typography variant="h6" gutterBottom textAlign="start">
+                        Enter teacher details
+                    </Typography>
                 </Grid>
-                <Box mt={3}>
-                    <DataGrid
-                        autoHeight
-                        rows={rows}
-                        columns={columns}
-                        pageSize={5}
-                        rowsPerPageOptions={[5]}
-                        checkboxSelection
-                        disableSelectionOnClick
+                <Grid item xs={12} md={6}>
+                    <TextField
+                        label="Teacher Code"
+                        variant="outlined"
+                        fullWidth
+                        value={teacherDetails.code}
+                        onChange={(e) => setTeacherDetails({ ...teacherDetails, code: e.target.value })}
                     />
-                </Box>
-            </Container>
+                </Grid>
+                <Grid item xs={12} md={5}>
+                    <TextField
+                        label="Teacher Name"
+                        variant="outlined"
+                        fullWidth
+                        value={teacherDetails.name}
+                        onChange={(e) => setTeacherDetails({ ...teacherDetails, name: e.target.value })}
+                    />
+                </Grid>
+                <Grid
+                    item
+                    md={1}
+                    xs={12}
+                    sx={{ textAlign: { xs: "center" } }}
+                >
+                    {matches ? (
+                        <Fab color="primary" aria-label="add" type="submit" onClick={addTeacher}>
+                            <AddRounded />
+                        </Fab>
+                    ) : (
+                        <Button
+                            variant="contained"
+                            sx={{ py: 2, px: 2 }}
+                            size="medium"
+                            startIcon={<AddRounded color="primary" />}
+                            type="submit"
+                            fullWidth
+                            onClick={addTeacher}
+                        >
+                            Add
+                        </Button>
+                    )}
+                </Grid>
+            </Grid>
+            <Box mt={3}>
+                <DataGrid
+                    autoHeight
+                    rows={rows}
+                    columns={columns}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                    checkboxSelection
+                    disableSelectionOnClick
+                />
+            </Box>
         </DashboardLayout>
     );
 };
