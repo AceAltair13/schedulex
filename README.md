@@ -4,7 +4,9 @@
 Schedulex generates timetables for general purposes with complex parameters using genetic algorithm.
 
 ## Screenshots
+
 Home Page
+
 ![Home Page](https://raw.githubusercontent.com/AceAltair13/schedulex/main/screenshots/home.png)
 
 DashBoard
