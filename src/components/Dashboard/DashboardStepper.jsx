@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Box, Stepper, Step, StepLabel, Button } from "@mui/material";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import GeneticTimeTable from "../../algorithm/model/GeneticTimeTable";
 import data from "../../algorithm/data/input";
+import { setTimetableGenerating } from "../../features/timetableSlice";
 
 const steps = [
   "Institute Details",
@@ -13,20 +14,28 @@ const steps = [
 ];
 
 const DashboardStepper = () => {
+  const dispatch = useDispatch();
   const { workingDays } = useSelector((state) => state.institute);
   const { classrooms } = useSelector((state) => state.classroom);
   const { courses } = useSelector((state) => state.course);
   const { teachers } = useSelector((state) => state.teacher);
   const { subjects } = useSelector((state) => state.subject);
 
+  //   const geneticTimeTable = new GeneticTimeTable(
+  //     workingDays,
+  //     classrooms,
+  //     courses,
+  //     true
+  //   );
   const geneticTimeTable = new GeneticTimeTable(
-    workingDays,
-    classrooms,
-    courses,
+    data.working_days,
+    data.classrooms,
+    data.school_data,
     true
   );
-  const runAlgorithm = () => {
-    let bestChild = geneticTimeTable.run();
+  const runAlgorithm = async () => {
+    dispatch(setTimetableGenerating(true));
+    let bestChild = await geneticTimeTable.run(dispatch);
     console.log(bestChild);
   };
 
