@@ -13,18 +13,18 @@ const steps = [
 ];
 
 const DashboardStepper = () => {
-  const geneticTimeTable = new GeneticTimeTable(
-    data.working_days,
-    data.classrooms,
-    data.school_data,
-    true
-  );
   const { workingDays } = useSelector((state) => state.institute);
   const { classrooms } = useSelector((state) => state.classroom);
   const { courses } = useSelector((state) => state.course);
   const { teachers } = useSelector((state) => state.teacher);
   const { subjects } = useSelector((state) => state.subject);
 
+  const geneticTimeTable = new GeneticTimeTable(
+    workingDays,
+    classrooms,
+    courses,
+    true
+  );
   const runAlgorithm = () => {
     let bestChild = geneticTimeTable.run();
     console.log(bestChild);
@@ -46,13 +46,13 @@ const DashboardStepper = () => {
           variant="contained"
           color="primary"
           sx={{ py: 2, px: 3 }}
-          //   disabled={
-          //     workingDays.length === 0 ||
-          //     classrooms.length === 0 ||
-          //     courses.length === 0 ||
-          //     teachers.length === 0 ||
-          //     subjects.length === 0
-          //   }
+          disabled={
+            workingDays.length === 0 ||
+            classrooms.length === 0 ||
+            courses.length === 0 ||
+            teachers.length === 0 ||
+            subjects.length === 0
+          }
           onClick={runAlgorithm}
         >
           Generate Timetable Now

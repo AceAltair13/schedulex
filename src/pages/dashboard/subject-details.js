@@ -21,7 +21,12 @@ import { DataGrid } from "@mui/x-data-grid";
 import CustomToolbar from "../../components/Dashboard/CustomToolbar";
 import AddTeacherModal from "../../components/Dashboard/modals/AddTeacherModal";
 import { useDispatch, useSelector } from "react-redux";
-import { setFacultyModalOpen } from "../../features/subjectSlice";
+import {
+  setFacultyModalOpen,
+  setSubject,
+  setTempFaculty,
+} from "../../features/subjectSlice";
+import { appendSubject } from "../../features/courseSlice";
 
 const SubjectDetails = () => {
   const { courses } = useSelector((state) => state.course);
@@ -67,48 +72,49 @@ const SubjectDetails = () => {
     },
   ];
 
-  const rows = [
-    {
-      id: 1,
-      srNo: 1,
-      subjectCode: "T-001",
-      subjectName: "Teacher 1",
-      slotsPerWeek: "2",
-      selectCourse: "IT",
-    },
-    {
-      id: 2,
-      srNo: 2,
-      subjectCode: "T-002",
-      subjectName: "Teacher 2",
-      slotsPerWeek: "4",
-      selectCourse: "COMPS",
-    },
-    {
-      id: 3,
-      srNo: 3,
-      subjectCode: "T-003",
-      subjectName: "Teacher 3",
-      slotsPerWeek: "2",
-      selectCourse: "IT",
-    },
-    {
-      id: 4,
-      srNo: 4,
-      subjectCode: "T-004",
-      subjectName: "Teacher 4",
-      slotsPerWeek: "3",
-      selectCourse: "COMPS",
-    },
-    {
-      id: 5,
-      srNo: 5,
-      subjectCode: "T-005",
-      subjectName: "Teacher 5",
-      slotsPerWeek: "4",
-      selectCourse: "IT",
-    },
-  ];
+  //   const rows = [
+  //     {
+  //       id: 1,
+  //       srNo: 1,
+  //       subjectCode: "T-001",
+  //       subjectName: "Teacher 1",
+  //       slotsPerWeek: "2",
+  //       selectCourse: "IT",
+  //     },
+  //     {
+  //       id: 2,
+  //       srNo: 2,
+  //       subjectCode: "T-002",
+  //       subjectName: "Teacher 2",
+  //       slotsPerWeek: "4",
+  //       selectCourse: "COMPS",
+  //     },
+  //     {
+  //       id: 3,
+  //       srNo: 3,
+  //       subjectCode: "T-003",
+  //       subjectName: "Teacher 3",
+  //       slotsPerWeek: "2",
+  //       selectCourse: "IT",
+  //     },
+  //     {
+  //       id: 4,
+  //       srNo: 4,
+  //       subjectCode: "T-004",
+  //       subjectName: "Teacher 4",
+  //       slotsPerWeek: "3",
+  //       selectCourse: "COMPS",
+  //     },
+  //     {
+  //       id: 5,
+  //       srNo: 5,
+  //       subjectCode: "T-005",
+  //       subjectName: "Teacher 5",
+  //       slotsPerWeek: "4",
+  //       selectCourse: "IT",
+  //     },
+  //   ];
+
   const options = ["IT", "COMPS", "EXTC"];
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
@@ -117,19 +123,69 @@ const SubjectDetails = () => {
     setCourse(e.target.value);
   };
   const dispatch = useDispatch();
-  const { tempFaculty } = useSelector((state) => state.subject);
+  const { tempFaculty, subjects } = useSelector((state) => state.subject);
+  const [subjectCode, setSubjectCode] = useState("");
+  const [subjectName, setSubjectName] = useState("");
+  const [slotsPerWeek, setSlotsPerWeek] = useState(0);
+  const rows = subjects.map((subject, index) => {
+    return {
+      id: index + 1,
+      srNo: index + 1,
+      subjectCode: subject.subjectCode,
+      subjectName: subject.subjectName,
+      slotsPerWeek: subject.slotsPerWeek,
+      selectCourse: subject.course,
+    };
+  });
+
+  const appendSubjectToCourse = () => {
+    dispatch(
+      appendSubject({
+        courseName: course.courseName,
+        subject_name: subjectName,
+        subject_code: subjectCode,
+        total_slots: parseInt(slotsPerWeek),
+        faculty: tempFaculty,
+      })
+    );
+    dispatch(
+      setSubject({
+        subjectCode,
+        subjectName,
+        slotsPerWeek,
+        course: course.courseName,
+      })
+    );
+    dispatch(setTempFaculty([]));
+  };
 
   return (
     <DashboardLayout title="Subjects">
       <Stack spacing={3}>
         <AddTeacherModal />
-        <TextField label="Subject Code" fullWidth variant="outlined" />
-        <TextField label="Subject Name" fullWidth variant="outlined" />
+        <TextField
+          label="Subject Code"
+          fullWidth
+          variant="outlined"
+          value={subjectCode}
+          onChange={(e) => {
+            setSubjectCode(e.target.value);
+          }}
+        />
+        <TextField
+          label="Subject Name"
+          fullWidth
+          variant="outlined"
+          value={subjectName}
+          onChange={(e) => setSubjectName(e.target.value)}
+        />
         <TextField
           label="Slots per week"
           fullWidth
           variant="outlined"
           type="number"
+          value={slotsPerWeek}
+          onChange={(e) => setSlotsPerWeek(e.target.value)}
         />
         <FormControl fullWidth>
           <InputLabel>Select Course</InputLabel>
@@ -146,7 +202,7 @@ const SubjectDetails = () => {
           </Select>
         </FormControl>
         {tempFaculty.map((f) => (
-          <Card>
+          <Card key={f.teacher}>
             <CardContent>
               <Typography variant="h6" fontWeight="fontWeightBold">
                 {f.teacher}
@@ -168,7 +224,13 @@ const SubjectDetails = () => {
           >
             Add Faculty
           </Button>
-          <Button variant="contained" color="primary" sx={{ py: 1 }} fullWidth>
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{ py: 1 }}
+            fullWidth
+            onClick={appendSubjectToCourse}
+          >
             Save
           </Button>
         </Stack>

@@ -58,7 +58,7 @@ const AddTeacherModal = () => {
         {
           teacher: teacher,
           classrooms: _classrooms,
-          slots: _timeslots,
+          slots: parseInt(_timeslots),
         },
       ])
     );
