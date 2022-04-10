@@ -63,6 +63,7 @@ const DashboardStepper = () => {
         setNewTimetable({
           ...JSON.parse(JSON.stringify(bestChild)),
           timestamp: new Date(),
+          days: workingDays,
         })
       );
       dispatch(setTimetableGenerating(false));

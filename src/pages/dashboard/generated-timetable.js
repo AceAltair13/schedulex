@@ -10,6 +10,7 @@ const GeneratedTimetable = () => {
   const { id } = useParams();
   const { timetables } = useSelector((state) => state.timetable);
   const _timetables = timetables[id];
+  const workingDays = _timetables.days;
   const { name } = useSelector((state) => state.institute);
   return (
     <DashboardLayout title="Generated timetables">
@@ -21,6 +22,7 @@ const GeneratedTimetable = () => {
           <Timetable
             timetable={timetable.timetable}
             classroom={timetable.classroom}
+            days={workingDays}
           />
         ))}
     </DashboardLayout>

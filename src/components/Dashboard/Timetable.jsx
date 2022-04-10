@@ -4,8 +4,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import _ from "lodash";
 import { useSelector } from "react-redux";
 
-const Timetable = ({ classroom, timetable }) => {
-  const { workingDays } = useSelector((state) => state.institute);
+const Timetable = ({ classroom, timetable, days }) => {
   // const columns = workingDays.map((day, i) => {
   //   return {
   //     field: day.day,
@@ -39,7 +38,7 @@ const Timetable = ({ classroom, timetable }) => {
         /> */}
         <Box sx={{ border: "1px solid", borderRadius: 2, p: 3 }}>
           <Stack direction="row" justifyContent="space-around">
-            {workingDays.map((day, i) => {
+            {days.map((day, i) => {
               return (
                 <Box key={i}>
                   <Typography
