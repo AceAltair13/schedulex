@@ -8,13 +8,13 @@ import {
   setTimetableGenerating,
 } from "../../features/timetableSlice";
 
-const steps = [
-  "Institute Details",
-  "Classroom Details",
-  "Course Details",
-  "Teacher Details",
-  "Subject Details",
-];
+// const steps = [
+//   "Institute Details",
+//   "Classroom Details",
+//   "Course Details",
+//   "Teacher Details",
+//   "Subject Details",
+// ];
 
 const DashboardStepper = () => {
   const dispatch = useDispatch();
@@ -24,6 +24,25 @@ const DashboardStepper = () => {
   const { teachers } = useSelector((state) => state.teacher);
   const { subjects } = useSelector((state) => state.subject);
 
+  const activeStepper = () => {
+    if (workingDays.length !== 0) {
+      if (classrooms.length !== 0) {
+        if (courses.length !== 0) {
+          if (teachers.length !== 0) {
+            if (subjects.length !== 0) {
+              return 5;
+            }
+            return 4;
+          }
+          return 3;
+        }
+        return 2;
+      }
+      return 1;
+    } else {
+      return 0;
+    }
+  };
   //   const geneticTimeTable = new GeneticTimeTable(
   //     workingDays,
   //     classrooms,
@@ -54,12 +73,22 @@ const DashboardStepper = () => {
   return (
     <Box>
       <Box sx={{ width: "100%" }}>
-        <Stepper activeStep={1} alternativeLabel>
-          {steps.map((label) => (
-            <Step key={label}>
-              <StepLabel>{label}</StepLabel>
-            </Step>
-          ))}
+        <Stepper activeStep={activeStepper()} alternativeLabel>
+          <Step>
+            <StepLabel>Institute Details</StepLabel>
+          </Step>
+          <Step>
+            <StepLabel>Classroom Details</StepLabel>
+          </Step>
+          <Step>
+            <StepLabel>Course Details</StepLabel>
+          </Step>
+          <Step>
+            <StepLabel>Teacher Details</StepLabel>
+          </Step>
+          <Step>
+            <StepLabel>Subject Details</StepLabel>
+          </Step>
         </Stepper>
       </Box>
       <Box textAlign="center" mt={4}>
