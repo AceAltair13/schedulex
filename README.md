@@ -72,16 +72,16 @@ A Web browser is good to go !
 **Serverless Processing:** JavaScript
 ## Deployment
 
-To deploy this project run
+To run this project, execute
 
 ```bash
-  npm run deploy
+  npm run build
 ```
 - [schedulex](https://AceAltair13.github.io/schedulex)
 
-## Used By
+## Applications
 
-This project is used by the following companies:
+The project can be used by the following organizations:
 
 - Educational Institutes
 
@@ -89,5 +89,5 @@ This project is used by the following companies:
 
 ## License
 
-[MIT](https://github.com/AceAltair13/schedulex/blob/main/LICENSE)
+[GPL v3.0](https://github.com/AceAltair13/schedulex/blob/main/LICENSE)
 
