@@ -1,74 +1,59 @@
 import React from "react";
-import { Box, Divider, Grid, Stack, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import _ from "lodash";
-import { useSelector } from "react-redux";
 
-const Timetable = ({ classroom, timetable, days }) => {
-  // const columns = workingDays.map((day, i) => {
-  //   return {
-  //     field: day.day,
-  //     headerName: day.day,
-  //     flex: 1,
-  //     align: "center",
-  //     headerAlign: "center",
-  //   };
-  // });
-  // let transpose = _.zip(...timetable);
-  // const rows = transpose.map((row, i) => {
-  //   return {
-  //     ...row,
-  //     id: i,
-  //   };
-  // });
+const Timetable = ({ classroom, timetable, workingDays }) => {
+    const dayColumns = workingDays.map((day, i) => {
+        return {
+            field: day.day,
+            headerName: day.day,
+            minWidth: 100,
+            flex: 1,
+            align: "center",
+            headerAlign: "center",
+        };
+    });
+    const columns = [
+        {
+            field: "slot",
+            headerName: "Slot",
+            width: 75,
+            align: "center",
+            headerAlign: "center",
+        },
+        ...dayColumns,
+    ];
+    let transpose = _.zip(...timetable);
+    console.log("===", transpose);
+    const rows = transpose.map((row, i) => {
+        let rowData = {};
+        row.forEach((cell, j) => {
+            rowData[workingDays[j].day] = cell
+                ? `${cell.subject} - ${cell.teacher}`
+                : "";
+        });
+        return { id: i, ...rowData, slot: i + 1 };
+    });
 
-  return (
-    <Grid container spacing={2} flexGrow={1} mb={3}>
-      <Grid item xs={12} textAlign="center">
-        <Typography variant="h4" fontWeight="fontWeightBold">
-          Class: {classroom}
-        </Typography>
-      </Grid>
-      <Grid item xs={12} mb={3}>
-        {/* <DataGrid
-          autoHeight
-          rows={rows}
-          columns={columns}
-          disableSelectionOnClick
-        /> */}
-        <Box sx={{ border: "1px solid", borderRadius: 2, p: 3 }}>
-          <Stack direction="row" justifyContent="space-around">
-            {days.map((day, i) => {
-              return (
-                <Box key={i}>
-                  <Typography
-                    variant="h6"
-                    fontWeight="fontWeightBold"
-                    color="primary.dark"
-                    textAlign="center"
-                    sx={{ mb: 2 }}
-                  >
-                    {day.day}
-                  </Typography>
-                  <Stack spacing={2}>
-                    {timetable[i].map((slot, j) => {
-                      return (
-                        <Box key={j}>
-                          <Typography variant="body1" textAlign="center">
-                            {slot.subject} - {slot.teacher}
-                          </Typography>
-                        </Box>
-                      );
-                    })}
-                  </Stack>
-                </Box>
-              );
-            })}
-          </Stack>
-        </Box>
-      </Grid>
-    </Grid>
-  );
+    return (
+        <Grid container spacing={2} flexGrow={1} mb={3}>
+            <Grid item xs={12} textAlign="center">
+                <Typography variant="h4" gutterBottom>
+                    {classroom}
+                </Typography>
+            </Grid>
+            <Grid item xs={12} mb={3}>
+                <DataGrid
+                    autoHeight
+                    rows={rows}
+                    columns={columns}
+                    disableSelectionOnClick
+                    hideFooter
+                />
+            </Grid>
+        </Grid>
+    );
 };
 
 export default Timetable;

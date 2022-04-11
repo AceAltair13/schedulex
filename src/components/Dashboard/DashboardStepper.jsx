@@ -3,10 +3,10 @@ import { Box, Stepper, Step, StepLabel, Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import GeneticTimeTable from "../../algorithm/model/GeneticTimeTable";
 import {
-  setNewTimetable,
-  setTimetableGenerating,
+    setNewTimetable,
+    setTimetableGenerating,
 } from "../../features/timetableSlice";
-// import data from "../../algorithm/data/input";
+import data from "../../algorithm/data/input";
 
 // const steps = [
 //   "Institute Details",
@@ -50,20 +50,20 @@ const DashboardStepper = () => {
         true
     );
     // const geneticTimeTable = new GeneticTimeTable(
-    //   data.working_days,
-    //   data.classrooms,
-    //   data.school_data,
-    //   true
+    //     data.working_days,
+    //     data.classrooms,
+    //     data.school_data,
+    //     true
     // );
     const runAlgorithm = async () => {
         dispatch(setTimetableGenerating(true));
         setTimeout(async () => {
-            let bestChild = await geneticTimeTable.run(dispatch);
+            const bestChild = await geneticTimeTable.run();
             dispatch(
                 setNewTimetable({
                     ...JSON.parse(JSON.stringify(bestChild)),
                     timestamp: new Date(),
-                    days: workingDays,
+                    days: geneticTimeTable.working_days,
                 })
             );
             dispatch(setTimetableGenerating(false));
@@ -97,13 +97,13 @@ const DashboardStepper = () => {
                     variant="contained"
                     color="primary"
                     sx={{ py: 2, px: 3 }}
-                    disabled={
-                        workingDays.length === 0 ||
-                        classrooms.length === 0 ||
-                        courses.length === 0 ||
-                        teachers.length === 0 ||
-                        subjects.length === 0
-                    }
+                    // disabled={
+                    //     workingDays.length === 0 ||
+                    //     classrooms.length === 0 ||
+                    //     courses.length === 0 ||
+                    //     teachers.length === 0 ||
+                    //     subjects.length === 0
+                    // }
                     onClick={runAlgorithm}
                 >
                     Generate Timetable Now
