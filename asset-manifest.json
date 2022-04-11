@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/schedulex/static/js/main.3acada41.js",
+    "main.js": "/schedulex/static/js/main.b8241c0a.js",
     "index.html": "/schedulex/index.html",
-    "main.3acada41.js.map": "/schedulex/static/js/main.3acada41.js.map"
+    "main.b8241c0a.js.map": "/schedulex/static/js/main.b8241c0a.js.map"
   },
   "entrypoints": [
-    "static/js/main.3acada41.js"
+    "static/js/main.b8241c0a.js"
   ]
 }
