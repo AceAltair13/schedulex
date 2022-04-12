@@ -97,13 +97,13 @@ const DashboardStepper = () => {
                     variant="contained"
                     color="primary"
                     sx={{ py: 2, px: 3 }}
-                    // disabled={
-                    //     workingDays.length === 0 ||
-                    //     classrooms.length === 0 ||
-                    //     courses.length === 0 ||
-                    //     teachers.length === 0 ||
-                    //     subjects.length === 0
-                    // }
+                    disabled={
+                        workingDays.length === 0 ||
+                        classrooms.length === 0 ||
+                        courses.length === 0 ||
+                        teachers.length === 0 ||
+                        subjects.length === 0
+                    }
                     onClick={runAlgorithm}
                 >
                     Generate Timetable Now
