@@ -1,4 +1,3 @@
-
 # Schedulex
 
 Schedulex generates timetables for general purposes with complex parameters using genetic algorithm.
@@ -32,44 +31,47 @@ Subjects
 Teachers
 
 ![Teachers](https://raw.githubusercontent.com/AceAltair13/schedulex/main/screenshots/teacherDetails.png)
+
+Generated Timetables
+
+![Generated Timetables](https://raw.githubusercontent.com/AceAltair13/schedulex/main/screenshots/generatedTimetable.png)
+
 ## Table of Content
 
- - [Installation](##Installation)
- - [Requirements](##Requirements)
- - [Usage](##Usage)
- - [Contribution](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
- - [License](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
-
-
+-   [Installation](##Installation)
+-   [Requirements](##Requirements)
+-   [Usage](##Usage)
+-   [Contribution](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+-   [License](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
 
 ## Installation
 
 Install schedulex with npm
 
 1. For Installation of the required library run the below command
+
 ```bash
   npm ci
 ```
 
-
-
-    
 ## Requirements
 
 A Web browser is good to go !
+
 ## Authors
 
-- [@AceAltair13](https://www.github.com/AceAltair13)
-- [@krupalvora](https://www.github.com/krupalvora)
-- [@vivek992](https://www.github.com/vivek992)
-- [@rushilshah23](https://www.github.com/rushilshah23)
-- [@Skyking469](https://www.github.com/Skyking469)
+-   [@AceAltair13](https://www.github.com/AceAltair13)
+-   [@krupalvora](https://www.github.com/krupalvora)
+-   [@vivek992](https://www.github.com/vivek992)
+-   [@rushilshah23](https://www.github.com/rushilshah23)
+-   [@Skyking469](https://www.github.com/Skyking469)
 
 ## Tech Stack
 
 **Client:** React, Redux, Material UI
 
 **Serverless Processing:** JavaScript
+
 ## Deployment
 
 To run this project, execute
@@ -77,17 +79,15 @@ To run this project, execute
 ```bash
   npm run build
 ```
-- [schedulex](https://AceAltair13.github.io/schedulex)
+
+-   [schedulex](https://AceAltair13.github.io/schedulex)
 
 ## Applications
 
 The project can be used by the following organizations:
 
-- Educational Institutes
-
-
+-   Educational Institutes
 
 ## License
 
 [GPL v3.0](https://github.com/AceAltair13/schedulex/blob/main/LICENSE)
-
