@@ -1,10 +1,8 @@
 import { useTheme } from "@emotion/react";
 import {
   Button,
-  Container,
   Stack,
   TextField,
-  Grid,
   useMediaQuery,
   FormControl,
   InputLabel,
@@ -15,7 +13,6 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import CustomSelect from "../../components/Dashboard/CustomSelect";
 import DashboardLayout from "../../layouts/DashboardLayout";
 import { DataGrid } from "@mui/x-data-grid";
 import CustomToolbar from "../../components/Dashboard/CustomToolbar";
@@ -72,50 +69,6 @@ const SubjectDetails = () => {
     },
   ];
 
-  //   const rows = [
-  //     {
-  //       id: 1,
-  //       srNo: 1,
-  //       subjectCode: "T-001",
-  //       subjectName: "Teacher 1",
-  //       slotsPerWeek: "2",
-  //       selectCourse: "IT",
-  //     },
-  //     {
-  //       id: 2,
-  //       srNo: 2,
-  //       subjectCode: "T-002",
-  //       subjectName: "Teacher 2",
-  //       slotsPerWeek: "4",
-  //       selectCourse: "COMPS",
-  //     },
-  //     {
-  //       id: 3,
-  //       srNo: 3,
-  //       subjectCode: "T-003",
-  //       subjectName: "Teacher 3",
-  //       slotsPerWeek: "2",
-  //       selectCourse: "IT",
-  //     },
-  //     {
-  //       id: 4,
-  //       srNo: 4,
-  //       subjectCode: "T-004",
-  //       subjectName: "Teacher 4",
-  //       slotsPerWeek: "3",
-  //       selectCourse: "COMPS",
-  //     },
-  //     {
-  //       id: 5,
-  //       srNo: 5,
-  //       subjectCode: "T-005",
-  //       subjectName: "Teacher 5",
-  //       slotsPerWeek: "4",
-  //       selectCourse: "IT",
-  //     },
-  //   ];
-
-  const options = ["IT", "COMPS", "EXTC"];
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
   const [course, setCourse] = useState("");
@@ -242,9 +195,10 @@ const SubjectDetails = () => {
           rowsPerPageOptions={[5]}
           checkboxSelection
           disableSelectionOnClick
-          components={{
-            Toolbar: CustomToolbar,
-          }}
+          // TODO: Add delete button
+          // components={{
+          //   Toolbar: CustomToolbar,
+          // }}
         />
       </Stack>
     </DashboardLayout>
