@@ -39,6 +39,9 @@ const InstituteDetails = () => {
   };
 
   const handleSlotChange = (e) => {
+    console.log(e.target.value);
+    console.log(typeof e.target.value);
+    console.log(parseInt(e.target.value));
     setSlots(parseInt(e.target.value));
   };
 
@@ -106,7 +109,7 @@ const InstituteDetails = () => {
           <TextField
             type="number"
             label="Slots per day"
-            onClick={handleSlotChange}
+            onChange={handleSlotChange}
           />
           {matches ? (
             <Box>
@@ -135,7 +138,8 @@ const InstituteDetails = () => {
           rowsPerPageOptions={[5]}
           checkboxSelection
           disableSelectionOnClick
-          components={{ Toolbar: CustomToolbar }}
+          // TODO: Add delete button
+          // components={{ Toolbar: CustomToolbar }}
         />
       </Stack>
     </DashboardLayout>
