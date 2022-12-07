@@ -1,17 +1,17 @@
 import {
-    AppBar,
-    Button,
-    Stack,
-    Toolbar,
-    Typography,
-    IconButton,
-    Menu,
-    MenuItem,
+  AppBar,
+  Button,
+  Stack,
+  Toolbar,
+  Typography,
+  IconButton,
+  Menu,
+  MenuItem,
 } from "@mui/material";
 import {
-    usePopupState,
-    bindMenu,
-    bindTrigger,
+  usePopupState,
+  bindMenu,
+  bindTrigger,
 } from "material-ui-popup-state/hooks";
 import React from "react";
 import { useHistory } from "react-router-dom";
@@ -20,66 +20,67 @@ import routes from "./routes";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
 const Navbar = () => {
-    const router = useHistory();
-    const popupState = usePopupState({
-        variant: "popover",
-        popupId: "homeMenu",
-    });
+  const router = useHistory();
+  const popupState = usePopupState({
+    variant: "popover",
+    popupId: "homeMenu",
+  });
 
-    const desktopMenu = (
-        <Stack
-            spacing={2}
-            direction="row"
-            display={{ xs: "none", md: "block" }}
+  const desktopMenu = (
+    <Stack spacing={2} direction="row" display={{ xs: "none", md: "block" }}>
+      {routes.map((route, i) => (
+        <Button
+          key={i}
+          variant="text"
+          color="primary"
+          onClick={() => router.push(route.path)}
         >
-            {routes.map((route, i) => (
-                <Button
-                    key={i}
-                    variant="text"
-                    color="primary"
-                    onClick={() => router.push(route.path)}
-                >
-                    {route.label}
-                </Button>
-            ))}
-            <IconButton href="https://github.com/AceAltair13/schedulex">
-                <GitHubIcon fontSize="large" color="primary" />
-            </IconButton>
-        </Stack>
-    );
-    const mobileMenu = (
-        <Menu {...bindMenu(popupState)}>
-            {routes.map((route, i) => (
-                <MenuItem onClick={() => router.push(route.path)} key={i}>
-                    {route.label}
-                </MenuItem>
-            ))}
-        </Menu>
-    );
+          {route.label}
+        </Button>
+      ))}
+      <IconButton href="https://github.com/AceAltair13/schedulex">
+        <GitHubIcon fontSize="large" color="primary" />
+      </IconButton>
+    </Stack>
+  );
+  const mobileMenu = (
+    <Menu {...bindMenu(popupState)}>
+      {routes.map((route, i) => (
+        <MenuItem onClick={() => router.push(route.path)} key={i}>
+          {route.label}
+        </MenuItem>
+      ))}
+    </Menu>
+  );
 
-    return (
-        <AppBar position="fixed" color="transparent" elevation={0}>
-            <Toolbar>
-                <Typography
-                    variant="h4"
-                    sx={{ flexGrow: 1 }}
-                    color="primary.main"
-                    fontWeight="fontWeightBold"
-                >
-                    ScheduleX
-                </Typography>
-                <IconButton
-                    {...bindTrigger(popupState)}
-                    color="primary"
-                    sx={{ display: { xs: "block", md: "none" } }}
-                >
-                    <MenuIcon />
-                </IconButton>
-                {desktopMenu}
-                {mobileMenu}
-            </Toolbar>
-        </AppBar>
-    );
+  return (
+    <AppBar
+      position="fixed"
+      color="transparent"
+      elevation={0}
+      className="appbar"
+    >
+      <Toolbar>
+        <Typography
+          variant="h4"
+          sx={{ flexGrow: 1 }}
+          color="primary.main"
+          fontWeight="fontWeightBold"
+        >
+          ScheduleX
+        </Typography>
+        <IconButton
+          {...bindTrigger(popupState)}
+          color="primary"
+          sx={{ display: { xs: "block", md: "none" } }}
+        >
+          <MenuIcon />
+        </IconButton>
+        {desktopMenu}
+        {mobileMenu}
+      </Toolbar>
+    </AppBar>
+  );
 };
 
 export default Navbar;
