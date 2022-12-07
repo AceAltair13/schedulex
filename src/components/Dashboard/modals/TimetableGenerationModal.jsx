@@ -6,19 +6,13 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setTimetableGenerating } from "../../../features/timetableSlice";
+import { useSelector } from "react-redux";
 
 const TimetableGenerationModal = () => {
-  const dispatch = useDispatch();
   const { generating } = useSelector((state) => state.timetable);
 
-  const handleClose = () => {
-    dispatch(setTimetableGenerating(false));
-  };
-
   return (
-    <Dialog open={generating} onClose={handleClose} maxWidth="sm" fullWidth>
+    <Dialog open={generating} maxWidth="sm" fullWidth>
       <Stack spacing={2} justifyContent="center" p={4}>
         <Typography variant="h4" gutterBottom textAlign="center">
           Generating your timetable
