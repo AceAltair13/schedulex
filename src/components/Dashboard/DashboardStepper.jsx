@@ -6,14 +6,6 @@ import {
   setTimetableGenerating,
 } from "../../features/timetableSlice";
 
-// const steps = [
-//   "Institute Details",
-//   "Classroom Details",
-//   "Course Details",
-//   "Teacher Details",
-//   "Subject Details",
-// ];
-
 const DashboardStepper = () => {
   const dispatch = useDispatch();
   const { workingDays } = useSelector((state) => state.institute);
@@ -23,23 +15,22 @@ const DashboardStepper = () => {
   const { subjects } = useSelector((state) => state.subject);
 
   const activeStepper = () => {
-    if (workingDays.length !== 0) {
-      if (classrooms.length !== 0) {
-        if (courses.length !== 0) {
-          if (teachers.length !== 0) {
-            if (subjects.length !== 0) {
-              return 5;
-            }
-            return 4;
-          }
-          return 3;
-        }
-        return 2;
-      }
-      return 1;
-    } else {
+    if (workingDays.length === 0) {
       return 0;
     }
+    if (classrooms.length === 0) {
+      return 1;
+    }
+    if (courses.length === 0) {
+      return 2;
+    }
+    if (teachers.length === 0) {
+      return 3;
+    }
+    if (subjects.length === 0) {
+      return 4;
+    }
+    return 5;
   };
 
   const runAlgorithm = async () => {
