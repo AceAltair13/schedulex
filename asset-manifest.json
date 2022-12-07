@@ -1,14 +1,17 @@
 {
   "files": {
-    "main.js": "/schedulex/static/js/main.7f6d4a5c.js",
+    "main.css": "/schedulex/static/css/main.a9c67f3f.css",
+    "main.js": "/schedulex/static/js/main.e597a8ad.js",
     "static/js/943.f5c2089a.chunk.js": "/schedulex/static/js/943.f5c2089a.chunk.js",
     "static/js/49.4c5d0369.chunk.js": "/schedulex/static/js/49.4c5d0369.chunk.js",
     "index.html": "/schedulex/index.html",
-    "main.7f6d4a5c.js.map": "/schedulex/static/js/main.7f6d4a5c.js.map",
+    "main.a9c67f3f.css.map": "/schedulex/static/css/main.a9c67f3f.css.map",
+    "main.e597a8ad.js.map": "/schedulex/static/js/main.e597a8ad.js.map",
     "943.f5c2089a.chunk.js.map": "/schedulex/static/js/943.f5c2089a.chunk.js.map",
     "49.4c5d0369.chunk.js.map": "/schedulex/static/js/49.4c5d0369.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.7f6d4a5c.js"
+    "static/css/main.a9c67f3f.css",
+    "static/js/main.e597a8ad.js"
   ]
 }

@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.a9c67f3f.css","mappings":"AAAA,QACE,iCAA0B,CAA1B,yBACF","sources":["assets/styles.css"],"sourcesContent":[".appbar {\r\n  backdrop-filter: blur(5px);\r\n}\r\n"],"names":[],"sourceRoot":""}
